@@ -1221,7 +1221,7 @@ namespace PB_sym {
 			this->textBox12->Enabled = false;
 			this->textBox12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox12->Location = System::Drawing::Point(332, 58);
+			this->textBox12->Location = System::Drawing::Point(109, 39);
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->Size = System::Drawing::Size(33, 26);
 			this->textBox12->TabIndex = 9;
@@ -1541,7 +1541,7 @@ namespace PB_sym {
 			   if (that == 4 && timRoad4 > 0) {
 				   that = 1;
 			   }
-
+			  
 			   return that;
 		   }
 
@@ -1571,25 +1571,45 @@ namespace PB_sym {
 				   else p->Size = System::Drawing::Size(40, 25);
 			   }
 		   }
+		   int road1Stop = 130;
+		   int road2Stop = 300;
+		   int road3Stop = 290;
+		   int road4Stop = 120;
 
 		   void carMovement(int car, PictureBox^ p) {
 			   int x = p->Location.X;
 			   int y = p->Location.Y;
 			   switch (car) {
 			   case 1: {
-				   if (!(!sym_Z2 && y > 100 && y < 140)) y += 2;
+				   if (!(!sym_Z2 && y > road1Stop && y < 140)) y += 2;
+				   else {
+					   road1Stop = 80;
+					   if (y > 70 && y < 90) road1Stop = 30;
+				   }
 				   break;
 			   }
 			   case 2: {
-				   if (!(!sym_Z1 && x > 270 && x < 345))x -= 2;
+				   if (!(!sym_Z1 && x > 270 && x < road2Stop)) x -= 2;
+				   else {
+					   road2Stop = 350;
+					   if (x > 340 && x < 360) road2Stop = 400;
+				   }
 				   break;
 			   }
 			   case 3: {
-				   if (!(!sym_Z4 && y > 280 && y < 320)) y -= 2;
+				   if (!(!sym_Z4 && y > 270 && y < road3Stop)) y -= 2;
+				   else {
+					   road3Stop = 340;
+					   if (y > 330 && y < 350) road3Stop = 390;
+				   }
 				   break;
 			   }
 			   case 4: {
-				   if (!(!sym_Z3 && x > 90 && x < 150))x += 2;
+				   if (!(!sym_Z3 && x > road4Stop && x < 150))x += 2;
+				   else {
+					   road4Stop = 70;
+					   if (x > 70 && x < 90) road4Stop = 20;
+				   }
 				   break;
 			   }
 			   }
@@ -1835,7 +1855,7 @@ namespace PB_sym {
 					pos_bottle += 2;
 				}
 				else {
-					if (pos_bottle < 57 || (pos_bottle > 60 && pos_bottle < 140) || (pos_bottle > 180 && pos_bottle < 230) || (pos_bottle > 240 && pos_bottle < 310)) pos_bottle += 2;
+					if (pos_bottle < 57 || (pos_bottle > 60 && pos_bottle < 139) || (pos_bottle > 180 && pos_bottle < 230) || (pos_bottle > 240 && pos_bottle < 310)) pos_bottle += 2;
 					if (sym_Z2 && sym_X2) nutTimer -= 10;
 					if (sym_Z3 && sym_X3) labelTimer -= 10;
 					if (sym_GR && sym_X4) validTimer -= 10;
@@ -1890,6 +1910,9 @@ namespace PB_sym {
 			if (pos_bottle > 180 && pos_bottle < 250)sym_X3 = 1; else sym_X3 = 0;
 			if (pos_bottle > 260 && pos_bottle < 365)sym_X4 = 1; else sym_X4 = 0;
 
+			this->textBox12->Clear(); ln = ""; ln = bottleWaterLevel.ToString();
+			this->textBox12->AppendText(ln);
+
 			this->pictureBox6->Location = System::Drawing::Point(pos_bottle, pos_bottle_y);
 			this->pictureBox6->Size = System::Drawing::Size(40, 100);
 
@@ -1939,7 +1962,8 @@ namespace PB_sym {
 				this->pictureBox8->Size = System::Drawing::Size(0, 0);
 			}
 
-			if (amoutOfCars > 0 && (timRoad1 == 0 || timRoad2 == 0 || timRoad3 == 0 || timRoad4 == 0)) {
+			if (amoutOfCars > 0 && (timRoad1 == 0 || timRoad2 == 0 || timRoad3 == 0 || timRoad4 == 0) && (road1Stop != 30 || road2Stop != 400 || road3Stop != 390 || road4Stop != 20)) {
+
 				int number = randomInt();
 
 				if (!car1) {
@@ -2057,7 +2081,6 @@ namespace PB_sym {
 			if (&b)sym_X2 = 1; else sym_X2 = 0;
 			if (&c)sym_X3 = 1; else sym_X3 = 0;
 			if (&d)sym_X4 = 1; else sym_X4 = 0;*/
-
 
 			this->textBox12->Clear(); ln = ""; ln = this->pictureBox10->Location.Y.ToString();
 			this->textBox12->AppendText(ln);
@@ -2838,8 +2861,9 @@ namespace PB_sym {
 		this->textBox13->Location = System::Drawing::Point(328, 39);
 		this->textBox13->Size = System::Drawing::Size(0, 26);
 
-		this->textBox12->Location = System::Drawing::Point(285, 39);
-		this->textBox12->Size = System::Drawing::Size(0, 26);
+		this->textBox12->Location = System::Drawing::Point(100, 230);
+		this->textBox12->Size = System::Drawing::Size(33, 26);
+
 		//TM
 		this->textBox11->Location = System::Drawing::Point(100, 259);
 		this->textBox11->Size = System::Drawing::Size(32, 20);

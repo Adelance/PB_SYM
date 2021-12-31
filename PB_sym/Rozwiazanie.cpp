@@ -74,7 +74,7 @@ void Solution(void) {
 	//	if (!X2) stan = 1;
 	//	break;
 	//}
-	/*switch (stan)
+	switch (stan)
 	{
 		case 1: Z1 = 0; Z2 = 0; Z3 = 0; Z4 = 1; M1 = 1; M2 = 0;
 			if (X1) stan = 2;
@@ -86,7 +86,7 @@ void Solution(void) {
 			if (!X7) stan = 4;
 			break;
 		case 4: Z1 = 0; Z2 = 0; Z3 = 0; Z4 = 1; M1 = 1, M2 = 0;
-			if (X2) stan = 5; tm1 = 1000000000;
+			if (X2) stan = 5; tm1 = 10;
 			break;
 		case 5: Z1 = 0; Z2 = 1; Z3 = 0; Z4 = 0; M1 = 0, M2 = 0;
 			if (!tm1) stan = 6;
@@ -99,7 +99,7 @@ void Solution(void) {
 			break;
 	}
 
-	if (tm1) --tm1;*/
+	if (tm1) --tm1;
 
 
 	/*switch (stan)
@@ -140,13 +140,13 @@ void Solution(void) {
 	if(tim)tim--;*/
 
 
-	switch (stan)
-	{
-	case 1: Z1 = 0; Z2 = 0;
-		if (X2) stan = 2;
-		break;
-	case 2: Z1 = 1; Z2 = 1; M1 = 1;
-		break;
-	}
+	//switch (stan)
+	//{
+	//case 1: Z1 = 0; Z2 = 0;
+	//	if (X2) stan = 2;
+	//	break;
+	//case 2: Z1 = 1; Z2 = 1; M1 = 1;
+	//	break;
+	//}
 }
 

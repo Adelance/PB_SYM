@@ -58,6 +58,36 @@
     <Image Include="..\..\..\Inżynierka\PB_sym\Images\skrzyzowanie\small — kopia.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\Images\skrzyzowanie\small — kopia.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\LiniaButelek\Baza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\LiniaButelek\Butelki\000.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\LiniaButelek\Butelki\001.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\LiniaButelek\Butelki\010.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\LiniaButelek\Butelki\011.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\LiniaButelek\Butelki\100.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\LiniaButelek\Butelki\101.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\LiniaButelek\Butelki\110.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\LiniaButelek\Butelki\111.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

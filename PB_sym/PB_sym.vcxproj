@@ -136,6 +136,16 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\Inżynierka\PB_sym\Images\skrzyzowanie\small — kopia.png" />
+    <Image Include="..\..\Images\LiniaButelek\Baza.png" />
+    <Image Include="..\..\Images\LiniaButelek\Butelki\000.png" />
+    <Image Include="..\..\Images\LiniaButelek\Butelki\001.png" />
+    <Image Include="..\..\Images\LiniaButelek\Butelki\010.png" />
+    <Image Include="..\..\Images\LiniaButelek\Butelki\011.png" />
+    <Image Include="..\..\Images\LiniaButelek\Butelki\100.png" />
+    <Image Include="..\..\Images\LiniaButelek\Butelki\101.png" />
+    <Image Include="..\..\Images\LiniaButelek\Butelki\110.png" />
+    <Image Include="..\..\Images\LiniaButelek\Butelki\111.png" />
+    <Image Include="..\..\Images\skrzyzowanie\small — kopia.png" />
     <Image Include="app.ico" />
     <Image Include="zbiornik.jpg" />
   </ItemGroup>
