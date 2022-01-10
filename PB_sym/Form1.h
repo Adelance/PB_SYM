@@ -2593,11 +2593,11 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 		this->textBox23->Location = System::Drawing::Point(364, 101);
 		this->textBox23->Size = System::Drawing::Size(46, 26);
 		//wLVL3
-		this->textBox22->Location = System::Drawing::Point(115, 257);
+		this->textBox22->Location = System::Drawing::Point(105, 257);
 		this->textBox22->Size = System::Drawing::Size(46, 26);
 
 		//TM
-		this->textBox13->Location = System::Drawing::Point(100, 317);
+		this->textBox13->Location = System::Drawing::Point(105, 317);
 		this->textBox13->Size = System::Drawing::Size(46, 26);
 		//Tm text
 		this->textBox11->Location = System::Drawing::Point(124, 291);
