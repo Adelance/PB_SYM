@@ -76,7 +76,7 @@ void trans_string(char* s)
 }
 
 namespace PB_sym {
-
+	using namespace System::Diagnostics;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -101,6 +101,7 @@ namespace PB_sym {
 
 	float wlvl1, wlvl2, wlvl3, temp; // poziom i temperatura wody w zbiorniku
 	bool symulation = false;
+
 	bool wagonOn = false;
 	int example = 5;
 	int pB2width = 10;
@@ -109,6 +110,10 @@ namespace PB_sym {
 	int pB5width = 10;
 
 	int pos_wag = 350;
+	
+	
+	
+	//Zad4
 	int pos_bottle = -1000000;
 	int pos_bottle_y = 500;
 	float bottleWaterLevel = 0;
@@ -119,6 +124,7 @@ namespace PB_sym {
 	float validTimer = 300;
 	bool invalidBottle = false;
 	bool bottleX1 = false, bottleX2 = false, bottleX3 = false, bottleX4 = false;
+
 	//Zad5
 	int car1 = 0;
 	int car2 = 0;
@@ -128,8 +134,24 @@ namespace PB_sym {
 	int car6 = 0;
 	int car7 = 0;
 	int car8 = 0;
-
 	int amoutOfCars = 0;
+	bool przejscie1 = false;
+	bool przejscie2 = false;
+	int road1Stop;
+	int road2Stop;
+	int road3Stop;
+	int road4Stop;
+	int amountRoad1 = 3;
+	int amountRoad2 = 3;
+	int amountRoad3 = 3;
+	int amountRoad4 = 3;
+	int timRoad1 = 0;
+	int timRoad2 = 0;
+	int timRoad3 = 0;
+	int timRoad4 = 0;
+	int timZ1 = 20, timZ2 = 20, timZ3 = 20, timZ4 = 20;
+	bool cross_error;
+
 	// -----------------------------------------------------------------------
 
 
@@ -256,6 +278,7 @@ namespace PB_sym {
 	private: System::Windows::Forms::PictureBox^ pictureBox8;
 	private: System::Windows::Forms::PictureBox^ pictureBox7;
 	private: System::Windows::Forms::Button^ button42;
+private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuItem;
 
 
 
@@ -374,6 +397,7 @@ namespace PB_sym {
 			this->startToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->stopToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->resetToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->skrzy¿owanieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
@@ -889,7 +913,7 @@ namespace PB_sym {
 			this->button42->Name = L"button42";
 			this->button42->Size = System::Drawing::Size(75, 23);
 			this->button42->TabIndex = 38;
-			this->button42->Text = L"button42";
+			this->button42->Text = L"Nowe auto";
 			this->button42->UseVisualStyleBackColor = true;
 			this->button42->Click += gcnew System::EventHandler(this, &Form1::button42_Click);
 			// 
@@ -1053,9 +1077,9 @@ namespace PB_sym {
 			this->textBox26->Enabled = false;
 			this->textBox26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox26->Location = System::Drawing::Point(387, 268);
+			this->textBox26->Location = System::Drawing::Point(334, 264);
 			this->textBox26->Name = L"textBox26";
-			this->textBox26->Size = System::Drawing::Size(0, 20);
+			this->textBox26->Size = System::Drawing::Size(28, 20);
 			this->textBox26->TabIndex = 21;
 			this->textBox26->Text = L"M3";
 			this->textBox26->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1125,7 +1149,7 @@ namespace PB_sym {
 				static_cast<System::Byte>(238)));
 			this->textBox21->Location = System::Drawing::Point(43, 402);
 			this->textBox21->Name = L"textBox21";
-			this->textBox21->Size = System::Drawing::Size(24, 20);
+			this->textBox21->Size = System::Drawing::Size(0, 20);
 			this->textBox21->TabIndex = 16;
 			this->textBox21->Text = L"X7";
 			this->textBox21->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1139,7 +1163,7 @@ namespace PB_sym {
 				static_cast<System::Byte>(238)));
 			this->textBox20->Location = System::Drawing::Point(43, 376);
 			this->textBox20->Name = L"textBox20";
-			this->textBox20->Size = System::Drawing::Size(30, 20);
+			this->textBox20->Size = System::Drawing::Size(0, 20);
 			this->textBox20->TabIndex = 15;
 			this->textBox20->Text = L"X6";
 			this->textBox20->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1193,7 +1217,7 @@ namespace PB_sym {
 			this->textBox16->Enabled = false;
 			this->textBox16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox16->Location = System::Drawing::Point(270, 309);
+			this->textBox16->Location = System::Drawing::Point(265, 308);
 			this->textBox16->Name = L"textBox16";
 			this->textBox16->Size = System::Drawing::Size(28, 20);
 			this->textBox16->TabIndex = 11;
@@ -1237,7 +1261,7 @@ namespace PB_sym {
 				static_cast<System::Byte>(238)));
 			this->textBox11->Location = System::Drawing::Point(73, 402);
 			this->textBox11->Name = L"textBox11";
-			this->textBox11->Size = System::Drawing::Size(32, 20);
+			this->textBox11->Size = System::Drawing::Size(0, 20);
 			this->textBox11->TabIndex = 8;
 			this->textBox11->Text = L"TM";
 			this->textBox11->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1249,7 +1273,7 @@ namespace PB_sym {
 			this->textBox10->Enabled = false;
 			this->textBox10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox10->Location = System::Drawing::Point(75, 376);
+			this->textBox10->Location = System::Drawing::Point(99, 175);
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->Size = System::Drawing::Size(32, 20);
 			this->textBox10->TabIndex = 7;
@@ -1395,9 +1419,9 @@ namespace PB_sym {
 			// 
 			// zadanieToolStripMenuItem
 			// 
-			this->zadanieToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->zadanieToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->zbiornikToolStripMenuItem,
-					this->kaskadaZbiornikówToolStripMenuItem, this->wagonToolStripMenuItem, this->liniaProdukcyjnaToolStripMenuItem
+					this->kaskadaZbiornikówToolStripMenuItem, this->wagonToolStripMenuItem, this->liniaProdukcyjnaToolStripMenuItem, this->skrzy¿owanieToolStripMenuItem
 			});
 			this->zadanieToolStripMenuItem->Name = L"zadanieToolStripMenuItem";
 			this->zadanieToolStripMenuItem->Size = System::Drawing::Size(61, 20);
@@ -1406,28 +1430,28 @@ namespace PB_sym {
 			// zbiornikToolStripMenuItem
 			// 
 			this->zbiornikToolStripMenuItem->Name = L"zbiornikToolStripMenuItem";
-			this->zbiornikToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			this->zbiornikToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->zbiornikToolStripMenuItem->Text = L"Zbiornik";
 			this->zbiornikToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::zbiornikToolStripMenuItem_Click);
 			// 
 			// kaskadaZbiornikówToolStripMenuItem
 			// 
 			this->kaskadaZbiornikówToolStripMenuItem->Name = L"kaskadaZbiornikówToolStripMenuItem";
-			this->kaskadaZbiornikówToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			this->kaskadaZbiornikówToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->kaskadaZbiornikówToolStripMenuItem->Text = L"Kaskada zbiorników";
 			this->kaskadaZbiornikówToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::kaskadaZbiornikówToolStripMenuItem_Click);
 			// 
 			// wagonToolStripMenuItem
 			// 
 			this->wagonToolStripMenuItem->Name = L"wagonToolStripMenuItem";
-			this->wagonToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			this->wagonToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->wagonToolStripMenuItem->Text = L"Wagon";
 			this->wagonToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::wagonToolStripMenuItem_Click);
 			// 
 			// liniaProdukcyjnaToolStripMenuItem
 			// 
 			this->liniaProdukcyjnaToolStripMenuItem->Name = L"liniaProdukcyjnaToolStripMenuItem";
-			this->liniaProdukcyjnaToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			this->liniaProdukcyjnaToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->liniaProdukcyjnaToolStripMenuItem->Text = L"Linia produkcyjna";
 			this->liniaProdukcyjnaToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::liniaProdukcyjnaToolStripMenuItem_Click);
 			// 
@@ -1461,6 +1485,13 @@ namespace PB_sym {
 			this->resetToolStripMenuItem->Size = System::Drawing::Size(102, 22);
 			this->resetToolStripMenuItem->Text = L"Reset";
 			this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::resetToolStripMenuItem_Click_1);
+			// 
+			// skrzy¿owanieToolStripMenuItem
+			// 
+			this->skrzy¿owanieToolStripMenuItem->Name = L"skrzy¿owanieToolStripMenuItem";
+			this->skrzy¿owanieToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->skrzy¿owanieToolStripMenuItem->Text = L"Skrzy¿owanie";
+			this->skrzy¿owanieToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::skrzy¿owanieToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -1524,97 +1555,135 @@ namespace PB_sym {
 		if (aK4)  this->button8->BackColor = System::Drawing::SystemColors::ControlDark;
 		else      this->button8->BackColor = System::Drawing::SystemColors::Control;
 	}
-
+		   
 		   int randomInt()
 		   {
 			   int that = 1 + static_cast<int>((rand() / static_cast<double>(RAND_MAX + 1)) * 4);
-
-			   if (that == 1 && timRoad1 > 0) {
+			
+			   if (that == 1 && (amountRoad1 == 0 || timRoad1 > 0)) {
 				   that = 2;
 			   }
-			   if (that == 2 && timRoad2 > 0) {
+			   if (that == 2 && (amountRoad2 == 0 || timRoad2 > 0)) {
 				   that = 3;
 			   }
-			   if (that == 3 && timRoad3 > 0) {
+			   if (that == 3 && (amountRoad3 == 0 || timRoad3 > 0)) {
 				   that = 4;
 			   }
-			   if (that == 4 && timRoad4 > 0) {
+			   if (that == 4 && (amountRoad4 == 0 || timRoad4 > 0)) {
 				   that = 1;
 			   }
-			  
+			   if (that == 1 && (amountRoad1 == 0 || timRoad1 > 0)) {
+				   that = 2;
+			   }
+			   if (that == 2 && (amountRoad2 == 0 || timRoad2 > 0)) {
+				   that = 3;
+			   }
+			   if (that == 3 && (amountRoad3 == 0 || timRoad3 > 0)) {
+				   that = 4;
+			   }
+			   switch (that) {
+			   case 1:amountRoad1--; break;
+			   case 2:amountRoad2--; break;
+			   case 3:amountRoad3--; break;
+			   case 4:amountRoad4--; break;
+			   }
+
 			   return that;
 		   }
 
 		   void zad5(PictureBox^ p, int i) {
-			   bool rotate = true;
 			   switch (i) {
-			   case 1: {
-				   p->Location = System::Drawing::Point(203, 29);
-				   break;
-			   }
-			   case 2: {
-				   p->Location = System::Drawing::Point(402, 200);
-				   break;
-			   }
-			   case 3: {
-				   p->Location = System::Drawing::Point(239, 389);
-				   break;
-			   }
-			   case 4: {
-				   p->Location = System::Drawing::Point(22, 235);
-				   break;
-			   }
+				   case 1: {
+					   p->Location = System::Drawing::Point(203, 29);
+					   break;
+				   }
+				   case 2: {
+					   p->Location = System::Drawing::Point(402, 200);
+					   break;
+				   }
+				   case 3: {
+					   p->Location = System::Drawing::Point(239, 389);
+					   break;
+				   }
+				   case 4: {
+					   p->Location = System::Drawing::Point(22, 235);
+					   break;
+				   }
 
 			   }
-			   if (rotate) {
-				   if (i % 2 == 1) p->Size = System::Drawing::Size(25, 40);
-				   else p->Size = System::Drawing::Size(40, 25);
-			   }
+			  
+			   if (i % 2 == 1) p->Size = System::Drawing::Size(25, 40);
+			   else p->Size = System::Drawing::Size(40, 25);
+			   
 		   }
-		   int road1Stop = 130;
-		   int road2Stop = 300;
-		   int road3Stop = 290;
-		   int road4Stop = 120;
 
-		   void carMovement(int car, PictureBox^ p) {
+		   int carMovement(int car, PictureBox^ p) {
 			   int x = p->Location.X;
 			   int y = p->Location.Y;
+			 
 			   switch (car) {
 			   case 1: {
-				   if (!(!sym_Z2 && y > road1Stop && y < 140)) y += 2;
-				   else {
-					   road1Stop = 80;
-					   if (y > 70 && y < 90) road1Stop = 30;
-				   }
+				   if (!(!sym_Z2 && y > road1Stop && y < 145)) y += 2;
+				   else if (y > 91 && y < 140)y += 2;
 				   break;
 			   }
 			   case 2: {
 				   if (!(!sym_Z1 && x > 270 && x < road2Stop)) x -= 2;
-				   else {
-					   road2Stop = 350;
-					   if (x > 340 && x < 360) road2Stop = 400;
-				   }
+				   else if (x > 300 && x < 333)x -= 2;
 				   break;
 			   }
 			   case 3: {
-				   if (!(!sym_Z4 && y > 270 && y < road3Stop)) y -= 2;
-				   else {
-					   road3Stop = 340;
-					   if (y > 330 && y < 350) road3Stop = 390;
-				   }
+				   if (!(!sym_Z4 && y > 250 && y < road3Stop)) y -= 2;
+				   else if (y >280 && y < 320)y -= 2;
 				   break;
 			   }
 			   case 4: {
-				   if (!(!sym_Z3 && x > road4Stop && x < 150))x += 2;
-				   else {
-					   road4Stop = 70;
-					   if (x > 70 && x < 90) road4Stop = 20;
-				   }
+				   if (!(!sym_Z3 && x > road4Stop && x < 130))x += 2;
+				   else if (x > 80 && x < 125)x += 2;
 				   break;
 			   }
 			   }
 			   p->Location = System::Drawing::Point(x, y);
+
+			   if ((sym_M1 && x > 140 && x < 190) || (sym_M2 && x > 240 && x < 290)) {
+				   symulation = false;
+				   MessageBox::Show("ERROR");
+
+			   };
+			   if ((x < 20 || x > 410 || y < 20 || y > 400) && car != 0) {
+				   switch (car) {
+				   case 1:amountRoad1++; break;
+				   case 2:amountRoad2++; break;
+				   case 3:amountRoad3++; break;
+				   case 4:amountRoad4++; break;
+				   }
+				   car = 0;
+				   p->Size = System::Drawing::Size(0, 0);
+			   }
+			   return car;
 		   }
+		  
+
+		   bool crossY(PictureBox^ p) {
+			   int x = p->Location.X;	   
+			   int y = p->Location.Y;
+			   if ((y == 200|| y == 235) && (x > 170 && x < 250 && x != 203 && x != 239)) return true; else return false;
+		   }
+
+		   bool crossX(PictureBox^ p) {
+			   int x = p->Location.X;
+			   int y = p->Location.Y;
+			   if ((x == 203 || x == 239) && (y > 170 && y < 250 && y != 200 && y != 235 ))return true; else return false;
+
+		   }
+		   
+		   bool cross_acc() {
+			   bool crX = false, crY = false;
+			   crX = crossX(pictureBox10) || crossX(pictureBox2) || crossX(pictureBox3) || crossX(pictureBox4) || crossX(pictureBox5) || crossX(pictureBox9) || crossX(pictureBox7) || crossX(pictureBox8);
+			   crY = crossY(pictureBox10) || crossY(pictureBox2) || crossY(pictureBox3) || crossY(pictureBox4) || crossY(pictureBox5) || crossY(pictureBox9) || crossY(pictureBox7) || crossY(pictureBox8);
+			   if (crX && crY) return true; else return false;
+		   }
+
 		   char sensor_X1(PictureBox^ car) {
 			   int x = car->Location.X;
 			   int y = car->Location.Y;
@@ -1634,13 +1703,12 @@ namespace PB_sym {
 			   int x = car->Location.X;
 			   int y = car->Location.Y;
 			   if (x == 239 && y > 280 && y < 320)return 1; else return 0;
+		
 		   }
-		   int timRoad1 = 0;
-		   int timRoad2 = 0;
-		   int timRoad3 = 0;
-		   int timRoad4 = 0;
-		   int test;
-		   int timZ1 = 20, timZ2 = 20, timZ3 = 20, timZ4 = 20;
+
+
+		
+
 
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1847,8 +1915,10 @@ namespace PB_sym {
 
 				if (sym_Z4)wlvl1 += 5;
 				if (sym_Z1 && sym_X1) {
-					wlvl1 -= 5;
-					bottleWaterLevel += 5;
+					if (wlvl1 > 5) {
+						wlvl1 -= 5;
+						bottleWaterLevel += 5;
+					}
 				}
 
 				if (sym_M1) {
@@ -1921,169 +1991,113 @@ namespace PB_sym {
 			break;
 		}
 		case 5: {
-			carMovement(car1, this->pictureBox10);
-			carMovement(car2, this->pictureBox2);
-			carMovement(car3, this->pictureBox3);
-			carMovement(car4, this->pictureBox4);
-			carMovement(car5, this->pictureBox5);
-			carMovement(car6, this->pictureBox9);
-			carMovement(car7, this->pictureBox7);
-			carMovement(car8, this->pictureBox8);
-			if (this->pictureBox10->Location.X < 20 || this->pictureBox10->Location.X > 410 || this->pictureBox10->Location.Y < 20 || this->pictureBox10->Location.Y > 410) {
-				car1 = 0;
-				this->pictureBox10->Size = System::Drawing::Size(0, 0);
-			}
-			if (this->pictureBox2->Location.X < 20 || this->pictureBox2->Location.X > 410 || this->pictureBox2->Location.Y < 20 || this->pictureBox2->Location.Y > 410) {
-				car2 = 0;
-				this->pictureBox2->Size = System::Drawing::Size(0, 0);
-			}
-			if (this->pictureBox3->Location.X < 20 || this->pictureBox3->Location.X > 410 || this->pictureBox3->Location.Y < 20 || this->pictureBox3->Location.Y > 410) {
-				car3 = 0;
-				this->pictureBox3->Size = System::Drawing::Size(0, 0);
-			}
-			if (this->pictureBox4->Location.X < 20 || this->pictureBox4->Location.X > 410 || this->pictureBox4->Location.Y < 20 || this->pictureBox4->Location.Y > 410) {
-				car4 = 0;
-				this->pictureBox4->Size = System::Drawing::Size(0, 0);
-			}
-			if (this->pictureBox5->Location.X < 20 || this->pictureBox5->Location.X > 410 || this->pictureBox5->Location.Y < 20 || this->pictureBox5->Location.Y > 410) {
-				car5 = 0;
-				this->pictureBox5->Size = System::Drawing::Size(0, 0);
-			}
-			if (this->pictureBox9->Location.X < 20 || this->pictureBox9->Location.X > 410 || this->pictureBox9->Location.Y < 20 || this->pictureBox9->Location.Y > 410) {
-				car6 = 0;
-				this->pictureBox9->Size = System::Drawing::Size(0, 0);
-			}
-			if (this->pictureBox7->Location.X < 20 || this->pictureBox7->Location.X > 410 || this->pictureBox7->Location.Y < 20 || this->pictureBox7->Location.Y > 410) {
-				car7 = 0;
-				this->pictureBox7->Size = System::Drawing::Size(0, 0);
-			}
-			if (this->pictureBox8->Location.X < 20 || this->pictureBox8->Location.X > 410 || this->pictureBox8->Location.Y < 20 || this->pictureBox8->Location.Y > 410) {
-				car8 = 0;
-				this->pictureBox8->Size = System::Drawing::Size(0, 0);
-			}
+			if (symulation) {
+				car1 = carMovement(car1, this->pictureBox10);
+				car2 = carMovement(car2, this->pictureBox2);
+				car3 = carMovement(car3, this->pictureBox3);
+				car4 = carMovement(car4, this->pictureBox4);
+				car5 = carMovement(car5, this->pictureBox5);
+				car6 = carMovement(car6, this->pictureBox9);
+				car7 = carMovement(car7, this->pictureBox7);
+				car8 = carMovement(car8, this->pictureBox8);
 
-			if (amoutOfCars > 0 && (timRoad1 == 0 || timRoad2 == 0 || timRoad3 == 0 || timRoad4 == 0) && (road1Stop != 30 || road2Stop != 400 || road3Stop != 390 || road4Stop != 20)) {
+				if (amoutOfCars > 0 && (timRoad1 == 0 || timRoad2 == 0 || timRoad3 == 0 || timRoad4 == 0) && (amountRoad1 || amountRoad2 || amountRoad3 || amountRoad4) && (!car1 || !car2 || !car3 || !car4 || !car5 || !car6 || !car7 || !car8)) {
 
-				int number = randomInt();
-
-				if (!car1) {
-					zad5(pictureBox10, number); car1 = number;
-					amoutOfCars -= 1;
+					int number = randomInt();
 					switch (number) {
-					case 1: timRoad1 = 30; break;
-					case 2: timRoad2 = 30; break;
-					case 3: timRoad3 = 30; break;
-					case 4: timRoad4 = 30; break;
+						case 1: timRoad1 = 30; break;
+						case 2: timRoad2 = 30; break;
+						case 3: timRoad3 = 30; break;
+						case 4: timRoad4 = 30; break;
 					}
-					break;
-				}
-				else if (!car2) {
-					zad5(pictureBox2, number); car2 = number;
-					amoutOfCars -= 1;
-					switch (number) {
-					case 1: timRoad1 = 30; break;
-					case 2: timRoad2 = 30; break;
-					case 3: timRoad3 = 30; break;
-					case 4: timRoad4 = 30; break;
+					if (!car1) {
+						zad5(pictureBox10, number); car1 = number;
+						amoutOfCars -= 1;
+						break;
 					}
-					break;
-				}
-				else if (!car3) {
-					zad5(pictureBox3, number); car3 = number;
-					amoutOfCars -= 1;
-					switch (number) {
-					case 1: timRoad1 = 30; break;
-					case 2: timRoad2 = 30; break;
-					case 3: timRoad3 = 30; break;
-					case 4: timRoad4 = 30; break;
+					else if (!car2) {
+						zad5(pictureBox2, number); car2 = number;
+						amoutOfCars -= 1;
+						break;
 					}
-					break;
-				}
-				else if (!car4) {
-					zad5(pictureBox4, number); car4 = number;
-					amoutOfCars -= 1;
-					switch (number) {
-					case 1: timRoad1 = 30; break;
-					case 2: timRoad2 = 30; break;
-					case 3: timRoad3 = 30; break;
-					case 4: timRoad4 = 30; break;
+					else if (!car3) {
+						zad5(pictureBox3, number); car3 = number;
+						amoutOfCars -= 1;
+						break;
 					}
-					break;
-				}
-				else if (!car5) {
-					zad5(pictureBox5, number); car5 = number;
-					amoutOfCars -= 1;
-					switch (number) {
-					case 1: timRoad1 = 30; break;
-					case 2: timRoad2 = 30; break;
-					case 3: timRoad3 = 30; break;
-					case 4: timRoad4 = 30; break;
+					else if (!car4) {
+						zad5(pictureBox4, number); car4 = number;
+						amoutOfCars -= 1;
+						break;
 					}
-					break;
-				}
-				else if (!car6) {
-					zad5(pictureBox9, number); car6 = number;
-					amoutOfCars -= 1;
-					switch (number) {
-					case 1: timRoad1 = 30; break;
-					case 2: timRoad2 = 30; break;
-					case 3: timRoad3 = 30; break;
-					case 4: timRoad4 = 30; break;
+					else if (!car5) {
+						zad5(pictureBox5, number); car5 = number;
+						amoutOfCars -= 1;
+						break;
 					}
-					break;
-				}
-				else if (!car7) {
-					zad5(pictureBox7, number); car7 = number;
-					amoutOfCars -= 1;
-					switch (number) {
-					case 1: timRoad1 = 30; break;
-					case 2: timRoad2 = 30; break;
-					case 3: timRoad3 = 30; break;
-					case 4: timRoad4 = 30; break;
+					else if (!car6) {
+						zad5(pictureBox9, number); car6 = number;
+						amoutOfCars -= 1;
+						break;
 					}
-					break;
-				}
-				else if (!car8) {
-					zad5(pictureBox8, number); car8 = number;
-					amoutOfCars -= 1;
-					switch (number) {
-					case 1: timRoad1 = 30; break;
-					case 2: timRoad2 = 30; break;
-					case 3: timRoad3 = 30; break;
-					case 4: timRoad4 = 30; break;
+					else if (!car7) {
+						zad5(pictureBox7, number); car7 = number;
+						amoutOfCars -= 1;
+						break;
 					}
-					break;
-				}
+					else if (!car8) {
+						zad5(pictureBox8, number); car8 = number;
+						amoutOfCars -= 1;
+						break;
+					}
 
 
+				}
+				
+				if (timRoad1)timRoad1--;
+				if (timRoad2)timRoad2--;
+				if (timRoad3)timRoad3--;
+				if (timRoad4)timRoad4--;
+
+				if (cross_acc()) {
+					symulation = false;
+					MessageBox::Show("ERROR");
+				}
 			}
-
-			if (timRoad1)timRoad1--;
-			if (timRoad2)timRoad2--;
-			if (timRoad3)timRoad3--;
-			if (timRoad4)timRoad4--;
-
+		
+			switch (amountRoad1) {
+				case 0: road1Stop = 40; break;
+				case 1: road1Stop = 90; break;
+				case 2: road1Stop = 140; break;
+			}
+			switch (amountRoad2) {
+				case 0: road2Stop = 400; break;
+				case 1: road2Stop = 350; break;
+				case 2: road2Stop = 300; break;
+			}
+			switch (amountRoad3) {
+				case 0: road3Stop = 380; break;
+				case 1: road3Stop = 330; break;
+				case 2: road3Stop = 280; break;
+			}
+			switch (amountRoad4) {
+				case 0: road4Stop = 25; break;
+				case 1: road4Stop = 75; break;
+				case 2: road4Stop = 120; break;
+			}
+		
 			sym_X1 = sensor_X1(pictureBox10) || sensor_X1(pictureBox2) || sensor_X1(pictureBox3) || sensor_X1(pictureBox4) || sensor_X1(pictureBox5) || sensor_X1(pictureBox9) || sensor_X1(pictureBox7) || sensor_X1(pictureBox8);
 			sym_X2 = sensor_X2(pictureBox10) || sensor_X2(pictureBox2) || sensor_X2(pictureBox3) || sensor_X2(pictureBox4) || sensor_X2(pictureBox5) || sensor_X2(pictureBox9) || sensor_X2(pictureBox7) || sensor_X2(pictureBox8);
 			sym_X3 = sensor_X3(pictureBox10) || sensor_X3(pictureBox2) || sensor_X3(pictureBox3) || sensor_X3(pictureBox4) || sensor_X3(pictureBox5) || sensor_X3(pictureBox9) || sensor_X3(pictureBox7) || sensor_X3(pictureBox8);
 			sym_X4 = sensor_X4(pictureBox10) || sensor_X4(pictureBox2) || sensor_X4(pictureBox3) || sensor_X4(pictureBox4) || sensor_X4(pictureBox5) || sensor_X4(pictureBox9) || sensor_X4(pictureBox7) || sensor_X4(pictureBox8);
+						
+			if (przejscie1)sym_GR = 1; else sym_GR = 0;
+			if (przejscie2)sym_M3 = 1; else sym_M3 = 0;
 
-			/*sensors(pictureBox2, sym_X1);
-			sensors(pictureBox3, sym_X1);
-			sensors(pictureBox4, sym_X1);
-			sensors(pictureBox5, sym_X1);
-			sensors(pictureBox9, sym_X1);
-			sensors(pictureBox7, sym_X1);
-			sensors(pictureBox8, sym_X1);*/
-
-
-			/*if (&a)sym_X1 = 1; else sym_X1 = 0;
-			if (&b)sym_X2 = 1; else sym_X2 = 0;
-			if (&c)sym_X3 = 1; else sym_X3 = 0;
-			if (&d)sym_X4 = 1; else sym_X4 = 0;*/
-
-			this->textBox12->Clear(); ln = ""; ln = this->pictureBox10->Location.Y.ToString();
+			this->textBox12->Clear(); ln = ""; ln = amoutOfCars.ToString();
+			
 			this->textBox12->AppendText(ln);
+		
 			break;
 		}
 
@@ -2123,10 +2137,6 @@ namespace PB_sym {
 			else        this->textBox16->BackColor = System::Drawing::Color::White;
 
 		}
-
-
-
-
 
 		if (sym_X5) this->textBox19->BackColor = System::Drawing::Color::Yellow;
 		else        this->textBox19->BackColor = System::Drawing::Color::White;
@@ -2418,6 +2428,7 @@ namespace PB_sym {
 	}
 
 		   System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
+	//Zbiornik
 
 	private: System::Void zbiornikToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		example = 1;
@@ -2428,6 +2439,7 @@ namespace PB_sym {
 		pB5width = 10;
 		this->button40->Size = System::Drawing::Size(37, 0);
 		this->button41->Size = System::Drawing::Size(37, 0);
+		this->button42->Size = System::Drawing::Size(0, 0);
 
 		this->pictureBox7->Size = System::Drawing::Size(0, 33);
 		this->pictureBox8->Size = System::Drawing::Size(0, 33);
@@ -2506,6 +2518,7 @@ namespace PB_sym {
 		this->button39->Size = System::Drawing::Size(0, 0);
 	}
 
+	//Kaskada
 	private: System::Void kaskadaZbiornikówToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Kaskada")));
 		example = 2;
@@ -2533,6 +2546,7 @@ namespace PB_sym {
 
 
 
+		this->button42->Size = System::Drawing::Size(0, 0);
 
 		//X1
 		this->textBox7->Location = System::Drawing::Point(201, 107);
@@ -2614,34 +2628,7 @@ namespace PB_sym {
 		this->button39->Size = System::Drawing::Size(0, 0);
 	}
 
-	private: System::Void button35_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (!wagonOn) {
-			sym_wag = 1;
-			pos_wag = 50;
-			wagonOn = true;
-		}
-	}
-	private: System::Void button36_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (!wagonOn) {
-			sym_wag = 2;
-			pos_wag = 350;
-			wagonOn = true;
-		}
-	}
-	private: System::Void button37_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (!wagonOn) {
-			sym_wag = 3;
-			pos_wag = 40;
-			wagonOn = true;
-		}
-	}
-	private: System::Void button38_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (!wagonOn) {
-			sym_wag = 4;
-			pos_wag = 305;
-			wagonOn = true;
-		}
-	}
+	//Wagonik
 	private: System::Void wagonToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Wagonik")));
 		example = 3;
@@ -2666,6 +2653,8 @@ namespace PB_sym {
 		this->button38->Size = System::Drawing::Size(75, 23);
 		//BUTTON Butelka
 		this->button39->Size = System::Drawing::Size(0, 0);
+		this->button42->Size = System::Drawing::Size(0, 0);
+
 		//czerwny kwadrat
 		this->pictureBox5->Location = System::Drawing::Point(51, 213);
 		this->pictureBox5->Size = System::Drawing::Size(0, 0);
@@ -2743,37 +2732,36 @@ namespace PB_sym {
 		this->textBox4->Location = System::Drawing::Point(167, 122);
 
 	}
-
-	private: System::Void startToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		symulation = true;
-	}
-	private: System::Void stopToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		symulation = false;
-	}
-	private: System::Void resetToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
-
-		wlvl1 = 0;
-		wlvl2 = 0;
-		wlvl3 = 0;
-		temp = 0;
-		sym_wag = 0;
-		wagonOn = false;
-		symulation = false;
-
-	}
-
-	private: System::Void button39_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (pos_bottle > 350 || pos_bottle < 0) {
-			pos_bottle = 0;
-			pos_bottle_y = 246;
-			bottleWaterLevel = 0;
-			bottleLabel = false;
-			bottleNut = false;
-			nutTimer = 300;
-			labelTimer = 300;
-			invalidBottle = false;
+	private: System::Void button35_Click(System::Object^ sender, System::EventArgs^ e) {
+			if (!wagonOn) {
+				sym_wag = 1;
+				pos_wag = 50;
+				wagonOn = true;
+			}
+		}
+	private: System::Void button36_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (!wagonOn) {
+			sym_wag = 2;
+			pos_wag = 350;
+			wagonOn = true;
 		}
 	}
+	private: System::Void button37_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (!wagonOn) {
+			sym_wag = 3;
+			pos_wag = 40;
+			wagonOn = true;
+		}
+	}
+	private: System::Void button38_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (!wagonOn) {
+			sym_wag = 4;
+			pos_wag = 305;
+			wagonOn = true;
+		}
+	}
+
+    //Linia Produkcyjna 
 	private: System::Void liniaProdukcyjnaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		//TODO 
 		//dorób licznik do poziomu wody w butelce
@@ -2801,6 +2789,9 @@ namespace PB_sym {
 		// 
 		// button38
 		// 
+
+		this->button42->Size = System::Drawing::Size(0, 0);
+
 		this->button38->Location = System::Drawing::Point(349, 130);
 		this->button38->Size = System::Drawing::Size(0, 0);
 
@@ -2891,17 +2882,220 @@ namespace PB_sym {
 		this->textBox4->Location = System::Drawing::Point(41, 213);
 		this->textBox4->Size = System::Drawing::Size(32, 20);
 	}
+	private: System::Void button39_Click(System::Object^ sender, System::EventArgs^ e) {
+			if (pos_bottle > 350 || pos_bottle < 0) {
+				pos_bottle = 0;
+				pos_bottle_y = 246;
+				bottleWaterLevel = 0;
+				bottleLabel = false;
+				bottleNut = false;
+				nutTimer = 300;
+				labelTimer = 300;
+				invalidBottle = false;
+			}
+		}
+
+	//Skrzyzowanie
+	private: System::Void skrzy¿owanieToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Cross")));
+		example = 5;
+		
+
+		this->button42->Location = System::Drawing::Point(28, 42);
+		this->button42->Size = System::Drawing::Size(75, 23);
+
+		this->pictureBox10->Location = System::Drawing::Point(-20, -20);
+		this->pictureBox10->Size = System::Drawing::Size(0, 40);
+
+		this->pictureBox9->Location = System::Drawing::Point(-20, -20);
+		this->pictureBox9->Size = System::Drawing::Size(0, 40);
+
+		this->pictureBox8->Location = System::Drawing::Point(-20, -20);
+		this->pictureBox8->Size = System::Drawing::Size(0, 25);
+
+		this->pictureBox7->Location = System::Drawing::Point(-20, -20);
+		this->pictureBox7->Size = System::Drawing::Size(0, 25);
+
+		this->button41->Location = System::Drawing::Point(291, 263);
+		this->button41->Size = System::Drawing::Size(37, 20);
+
+		this->button40->Location = System::Drawing::Point(137, 175);
+		this->button40->Size = System::Drawing::Size(37, 20);
+
+		this->button39->Location = System::Drawing::Point(28, 259);
+		this->button39->Size = System::Drawing::Size(0, 23);
+
+		this->pictureBox6->Location = System::Drawing::Point(22, 246);
+		this->pictureBox6->Size = System::Drawing::Size(0, 100);
+
+		this->button38->Location = System::Drawing::Point(349, 130);
+		this->button38->Size = System::Drawing::Size(0, 0);
+ 
+		this->button37->Location = System::Drawing::Point(349, 72);
+		this->button37->Size = System::Drawing::Size(0, 0);
+
+		this->button36->Location = System::Drawing::Point(349, 101);
+		this->button36->Size = System::Drawing::Size(0, 0);
+
+		this->button35->Location = System::Drawing::Point(365, 40);
+		this->button35->Size = System::Drawing::Size(0, 0);
+
+		this->pictureBox5->Location = System::Drawing::Point(-20, -20);
+		this->pictureBox5->Size = System::Drawing::Size(0, 25);
+
+		this->pictureBox4->Location = System::Drawing::Point(-20, -20);
+		this->pictureBox4->Size = System::Drawing::Size(0, 40);
+
+		this->pictureBox3->Location = System::Drawing::Point(-20, -20);
+		this->pictureBox3->Size = System::Drawing::Size(0, 40);
+
+		this->pictureBox2->Location = System::Drawing::Point(-20, -20);
+		this->pictureBox2->Size = System::Drawing::Size(0, 25);
+
+		this->textBox26->Location = System::Drawing::Point(334, 264);
+		this->textBox26->Size = System::Drawing::Size(28, 20);
+
+		this->textBox25->Location = System::Drawing::Point(270, 220);
+		this->textBox25->Size = System::Drawing::Size(28, 20);
+
+		this->textBox24->Location = System::Drawing::Point(166, 220);
+		this->textBox24->Size = System::Drawing::Size(28, 20);
+
+		this->textBox23->Location = System::Drawing::Point(316, 72);
+		this->textBox23->Size = System::Drawing::Size(0, 26);
+
+		this->textBox22->Location = System::Drawing::Point(365, 40);
+		this->textBox22->Size = System::Drawing::Size(0, 26);
+
+		this->textBox21->Location = System::Drawing::Point(43, 402);
+		this->textBox21->Size = System::Drawing::Size(0, 20);
+
+		this->textBox20->Location = System::Drawing::Point(43, 376);
+		this->textBox20->Size = System::Drawing::Size(0, 20);
+
+		this->textBox19->Location = System::Drawing::Point(338, 166);
+		this->textBox19->Size = System::Drawing::Size(0, 20);
+
+		this->textBox18->Location = System::Drawing::Point(315, 132);
+		this->textBox18->Size = System::Drawing::Size(0, 20);
+
+		this->textBox17->Location = System::Drawing::Point(265, 282);
+		this->textBox17->Size = System::Drawing::Size(28, 20);
+
+		this->textBox16->Location = System::Drawing::Point(265, 308);
+		this->textBox16->Size = System::Drawing::Size(28, 20);
+
+		this->textBox13->Location = System::Drawing::Point(328, 39);
+		this->textBox13->Size = System::Drawing::Size(0, 26);
+
+		this->textBox12->Location = System::Drawing::Point(109, 39);
+		this->textBox12->Size = System::Drawing::Size(33, 26);
+
+		this->textBox11->Location = System::Drawing::Point(73, 402);
+		this->textBox11->Size = System::Drawing::Size(0, 20);
+	
+		this->textBox10->Location = System::Drawing::Point(99, 175);
+		this->textBox10->Size = System::Drawing::Size(32, 20);
+
+		this->textBox9->Location = System::Drawing::Point(132, 205);
+		this->textBox9->Size = System::Drawing::Size(28, 20);
+
+		this->textBox8->Location = System::Drawing::Point(173, 130);
+		this->textBox8->Size = System::Drawing::Size(28, 20);
+
+		this->textBox7->Location = System::Drawing::Point(310, 231);
+		this->textBox7->Size = System::Drawing::Size(28, 20);
+
+		this->textBox6->Location = System::Drawing::Point(145, 264);
+		this->textBox6->Size = System::Drawing::Size(28, 20);
+
+		this->textBox5->Location = System::Drawing::Point(173, 156);
+		this->textBox5->Size = System::Drawing::Size(28, 20);
+
+		this->textBox4->Location = System::Drawing::Point(291, 175);
+		this->textBox4->Size = System::Drawing::Size(28, 20);
+
+
+
+
+		this->pictureBox10->BackColor = System::Drawing::Color::Silver;
+		this->pictureBox9->BackColor = System::Drawing::Color::Cyan;
+		this->pictureBox8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
+		this->pictureBox7->BackColor = System::Drawing::Color::Lime;
+		this->pictureBox5->BackColor = System::Drawing::Color::Red;
+		this->pictureBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(225)), static_cast<System::Int32>(static_cast<System::Byte>(125)),	static_cast<System::Int32>(static_cast<System::Byte>(255)));
+		this->pictureBox3->BackColor = System::Drawing::Color::Yellow;
+		this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(125)), static_cast<System::Int32>(static_cast<System::Byte>(255)));
+	}
 
 	private: System::Void button40_Click(System::Object^ sender, System::EventArgs^ e) {
-
-
+		if(przejscie1) przejscie1 = false;
+		else przejscie1 = true;
 	}
 	private: System::Void button41_Click_1(System::Object^ sender, System::EventArgs^ e) {
-
+		if (przejscie2) przejscie2 = false;
+		else przejscie2 = true;
 	}
 	private: System::Void button42_Click(System::Object^ sender, System::EventArgs^ e) {
 		amoutOfCars += 1;
 	}
-	};
+
+
+//-----------------Symulacja
+	private: System::Void startToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		symulation = true;
+	}
+	private: System::Void stopToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		symulation = false;
+	}
+
+	void resetCar(PictureBox^ p) {
+		p->Size = System::Drawing::Size(0, 0);
+	}
+	private: System::Void resetToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
+
+		wlvl1 = 0;
+		wlvl2 = 0;
+		wlvl3 = 0;
+		temp = 0;
+		
+		symulation = false;
+		
+
+		switch (example) {
+			case 3: {
+				sym_wag = 0;
+				wagonOn = false;
+				break;
+			}
+			case 4: {
+				pos_bottle = -1000000;
+				pos_bottle_y = 500;
+				bottleWaterLevel = 0;
+				bottleLabel = false;
+				bottleNut = false;
+				nutTimer = 300;
+				labelTimer = 300;
+				validTimer = 300;
+				invalidBottle = false;
+				bottleX1 = false, bottleX2 = false, bottleX3 = false, bottleX4 = false;
+				break;
+			}
+			case 5: { //Skrzyzowanie
+				car1 = car2 = car3 = car4 = car5 = car6 = car7 = car8 = amoutOfCars = 0;
+				przejscie1 = przejscie2 = false;
+				amountRoad1 = amountRoad2 = amountRoad3 = amountRoad4 = 3;
+				timRoad1 = timRoad2 = timRoad3 = timRoad4 = 0;
+				timZ1 = timZ2 = timZ3 = timZ4 = 20;
+				resetCar(pictureBox10); resetCar(pictureBox2); resetCar(pictureBox3); resetCar(pictureBox4); resetCar(pictureBox5);	resetCar(pictureBox9); resetCar(pictureBox7); resetCar(pictureBox8);
+				break;
+			}
+		}
+	
+	
+	}
+	
+};
+
 }
 

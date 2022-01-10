@@ -88,6 +88,48 @@
     <Image Include="..\..\Images\LiniaButelek\Butelki\111.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\Images\skrzyzowanie\erroe.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\101.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\110.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\111.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\cross.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\Kaskada.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\LiniaProd.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\Wagonik.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\Zbiornik.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\000.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\001.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\010.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\011.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Images\All\100.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

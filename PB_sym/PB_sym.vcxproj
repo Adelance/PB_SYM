@@ -136,6 +136,19 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\Inżynierka\PB_sym\Images\skrzyzowanie\small — kopia.png" />
+    <Image Include="..\..\Images\All\000.png" />
+    <Image Include="..\..\Images\All\001.png" />
+    <Image Include="..\..\Images\All\010.png" />
+    <Image Include="..\..\Images\All\011.png" />
+    <Image Include="..\..\Images\All\100.png" />
+    <Image Include="..\..\Images\All\101.png" />
+    <Image Include="..\..\Images\All\110.png" />
+    <Image Include="..\..\Images\All\111.png" />
+    <Image Include="..\..\Images\All\cross.png" />
+    <Image Include="..\..\Images\All\Kaskada.bmp" />
+    <Image Include="..\..\Images\All\LiniaProd.png" />
+    <Image Include="..\..\Images\All\Wagonik.png" />
+    <Image Include="..\..\Images\All\Zbiornik.png" />
     <Image Include="..\..\Images\LiniaButelek\Baza.png" />
     <Image Include="..\..\Images\LiniaButelek\Butelki\000.png" />
     <Image Include="..\..\Images\LiniaButelek\Butelki\001.png" />
@@ -145,6 +158,7 @@
     <Image Include="..\..\Images\LiniaButelek\Butelki\101.png" />
     <Image Include="..\..\Images\LiniaButelek\Butelki\110.png" />
     <Image Include="..\..\Images\LiniaButelek\Butelki\111.png" />
+    <Image Include="..\..\Images\skrzyzowanie\erroe.png" />
     <Image Include="..\..\Images\skrzyzowanie\small — kopia.png" />
     <Image Include="app.ico" />
     <Image Include="zbiornik.jpg" />

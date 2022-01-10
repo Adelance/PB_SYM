@@ -127,7 +127,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAaQAAAGQCAYAAADhpxSOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAFstJREFUeF7t3UHLbudVxvHzbTONA0HooNAPkJHgzIqmddSkSXRSilBbhDrpwIkj
+        vAAADrwBlbxySQAAFstJREFUeF7t3UHLbudVxvHzbTONA0HooNAPkJHgzIqmddSkSXRSilBbhDrpwIkj
         P4EpRYpQAz3yFtdhJ7m6TRZ7ndyr+Q1+o+z7DuzncP2bvs+bvHrvV++8hkmffvbZH3zy4fcf88En77+5
         99133+X//OTnv3jzXl7eUXp3HXXni/QZwxMEiXE1ZGnougQpEyQ2EyTG1ZCloesSpEyQ2EyQGFdDloau
         66Qg/dMv//WN9NffJkFiM0FiXA1ZGrouQcoEic0EiXE1ZGnougQpEyQ2EyTG1ZCloesSpEyQ2EyQGFdD
@@ -232,30 +232,42 @@
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="000" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\Images\LiniaButelek\Butelki\000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\..\Images\All\000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\Images\LiniaButelek\Butelki\001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\..\Images\All\001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="010" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\Images\LiniaButelek\Butelki\010.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\..\Images\All\010.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="011" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\Images\LiniaButelek\Butelki\011.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\..\Images\All\011.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\Images\LiniaButelek\Butelki\100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\..\Images\All\100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="101" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\Images\LiniaButelek\Butelki\101.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\..\Images\All\101.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="110" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\Images\LiniaButelek\Butelki\110.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\..\Images\All\110.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="111" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\Images\LiniaButelek\Butelki\111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\..\Images\All\111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cross" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Images\All\Cross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaskada" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Images\All\Kaskada.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LiniaProd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\Images\LiniaButelek\Baza.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\..\Images\All\LiniaProd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wagonik" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Images\All\Wagonik.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Zbiornik" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Images\All\Zbiornik.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
