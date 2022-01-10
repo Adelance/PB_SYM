@@ -9,6 +9,7 @@ char stan1 = 1, tm1, stan2 = 1, tm2a, tm2b, stan3 = 1, tm3;
 char stan = 1;
 //char stan2 = 1;
 char tim = 30;
+
 void Solution(void) {
 
 	/*switch (stan) {

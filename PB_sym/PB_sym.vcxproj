@@ -160,6 +160,19 @@
     <Image Include="..\..\Images\LiniaButelek\Butelki\111.png" />
     <Image Include="..\..\Images\skrzyzowanie\erroe.png" />
     <Image Include="..\..\Images\skrzyzowanie\small — kopia.png" />
+    <Image Include="..\Images\000.png" />
+    <Image Include="..\Images\001.png" />
+    <Image Include="..\Images\010.png" />
+    <Image Include="..\Images\011.png" />
+    <Image Include="..\Images\100.png" />
+    <Image Include="..\Images\101.png" />
+    <Image Include="..\Images\110.png" />
+    <Image Include="..\Images\111.png" />
+    <Image Include="..\Images\Cross.png" />
+    <Image Include="..\Images\Kaskada.bmp" />
+    <Image Include="..\Images\LiniaProd.png" />
+    <Image Include="..\Images\Wagonik.png" />
+    <Image Include="..\Images\Zbiornik.png" />
     <Image Include="app.ico" />
     <Image Include="zbiornik.jpg" />
   </ItemGroup>

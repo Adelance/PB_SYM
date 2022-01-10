@@ -130,6 +130,45 @@
     <Image Include="..\..\Images\All\100.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\Images\001.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\010.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\011.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\100.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\101.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\110.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\111.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\Cross.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\Kaskada.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\LiniaProd.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\Wagonik.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\Zbiornik.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Images\000.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
