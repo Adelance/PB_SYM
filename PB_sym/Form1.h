@@ -1713,6 +1713,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 		   int prodX2end = 165;
 		   int prodX3end = 250;
 		   int prodX4end = 365;
+		   int X2stayed = 30;
 		   int X3stayed = 30;
 		   int X4stayed = 30;
 
@@ -1933,8 +1934,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 					pos_bottle += 2;
 				}
 				else {
-					if (pos_bottle < 57 || (pos_bottle > 60 && pos_bottle < 139) || (pos_bottle > 180 && pos_bottle < 228) || (pos_bottle > 240 && pos_bottle < 312)) pos_bottle += 2;
+					if (pos_bottle < 57 || (pos_bottle > 60 && pos_bottle < 138) || (pos_bottle > 180 && pos_bottle < 228) || (pos_bottle > 240 && pos_bottle < 312)) pos_bottle += 2;
 					if (sym_Z2 && sym_X2) nutTimer -= 10;
+					if (!sym_Z2 && sym_X2) X2stayed--;
 					if (sym_Z3 && sym_X3) labelTimer -= 10;
 					if (!sym_Z3 && sym_X3) X3stayed--;
 					if (sym_GR && bottleX4) validTimer -= 10;
@@ -1978,16 +1980,16 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 
 			if (wlvl1 < 0) wlvl1 = 0;
 			else if (wlvl1 > 1000) wlvl1 = 1000;
-			
+			Debug::WriteLine(pos_bottle);
 			sym_X6 = wlvl1 > 725;
 			sym_X7 = wlvl1 > 225;
 			sym_TM = (bottleWaterLevel > 500 && pos_bottle < 80);
 
 			if (bottleWaterLevel > 500) prodX1end = 20; else prodX1end = 75;
-			if (bottleNut) prodX2end = 120; else prodX2end = 165;
+			if (bottleNut || X2stayed <= 0) prodX2end = 120; else prodX2end = 165;
 			if (bottleLabel || X3stayed <= 0) prodX3end = 190; else prodX3end = 250;
 			if (validTimer <= 0 || X4stayed <=0) prodX4end = 265; else prodX4end = 365;
-			Debug::WriteLine(X4stayed);
+			
 			if (pos_bottle > 54 && pos_bottle < 62)bottleX1 = 1; else bottleX1 = 0;
 			if (pos_bottle > 136 && pos_bottle < 148)bottleX2 = 1; else bottleX2 = 0;
 			if (pos_bottle > 226 && pos_bottle < 234)bottleX3 = 1; else bottleX3 = 0;
