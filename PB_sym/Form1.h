@@ -393,11 +393,11 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->kaskadaZbiornikówToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->wagonToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->liniaProdukcyjnaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->skrzy¿owanieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->symulacjaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->startToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->stopToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->resetToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->skrzy¿owanieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
@@ -911,7 +911,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// 
 			this->button42->Location = System::Drawing::Point(28, 42);
 			this->button42->Name = L"button42";
-			this->button42->Size = System::Drawing::Size(75, 23);
+			this->button42->Size = System::Drawing::Size(0, 23);
 			this->button42->TabIndex = 38;
 			this->button42->Text = L"Nowe auto";
 			this->button42->UseVisualStyleBackColor = true;
@@ -922,7 +922,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->pictureBox10->BackColor = System::Drawing::Color::Silver;
 			this->pictureBox10->Location = System::Drawing::Point(-20, -20);
 			this->pictureBox10->Name = L"pictureBox10";
-			this->pictureBox10->Size = System::Drawing::Size(0, 40);
+			this->pictureBox10->Size = System::Drawing::Size(0, 0);
 			this->pictureBox10->TabIndex = 37;
 			this->pictureBox10->TabStop = false;
 			// 
@@ -931,7 +931,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->pictureBox9->BackColor = System::Drawing::Color::Cyan;
 			this->pictureBox9->Location = System::Drawing::Point(-20, -20);
 			this->pictureBox9->Name = L"pictureBox9";
-			this->pictureBox9->Size = System::Drawing::Size(0, 40);
+			this->pictureBox9->Size = System::Drawing::Size(0, 0);
 			this->pictureBox9->TabIndex = 36;
 			this->pictureBox9->TabStop = false;
 			// 
@@ -941,7 +941,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->pictureBox8->Location = System::Drawing::Point(-20, -20);
 			this->pictureBox8->Name = L"pictureBox8";
-			this->pictureBox8->Size = System::Drawing::Size(0, 25);
+			this->pictureBox8->Size = System::Drawing::Size(0, 0);
 			this->pictureBox8->TabIndex = 35;
 			this->pictureBox8->TabStop = false;
 			// 
@@ -950,7 +950,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->pictureBox7->BackColor = System::Drawing::Color::Lime;
 			this->pictureBox7->Location = System::Drawing::Point(-20, -20);
 			this->pictureBox7->Name = L"pictureBox7";
-			this->pictureBox7->Size = System::Drawing::Size(0, 25);
+			this->pictureBox7->Size = System::Drawing::Size(0, 0);
 			this->pictureBox7->TabIndex = 34;
 			this->pictureBox7->TabStop = false;
 			// 
@@ -958,7 +958,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// 
 			this->button41->Location = System::Drawing::Point(291, 263);
 			this->button41->Name = L"button41";
-			this->button41->Size = System::Drawing::Size(37, 20);
+			this->button41->Size = System::Drawing::Size(0, 0);
 			this->button41->TabIndex = 33;
 			this->button41->Text = L"click";
 			this->button41->UseVisualStyleBackColor = true;
@@ -968,7 +968,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// 
 			this->button40->Location = System::Drawing::Point(137, 175);
 			this->button40->Name = L"button40";
-			this->button40->Size = System::Drawing::Size(37, 20);
+			this->button40->Size = System::Drawing::Size(0, 0);
 			this->button40->TabIndex = 32;
 			this->button40->Text = L"click";
 			this->button40->UseVisualStyleBackColor = true;
@@ -978,7 +978,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// 
 			this->button39->Location = System::Drawing::Point(28, 259);
 			this->button39->Name = L"button39";
-			this->button39->Size = System::Drawing::Size(0, 23);
+			this->button39->Size = System::Drawing::Size(0, 0);
 			this->button39->TabIndex = 31;
 			this->button39->Text = L"Butelka";
 			this->button39->UseVisualStyleBackColor = true;
@@ -988,7 +988,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// 
 			this->pictureBox6->Location = System::Drawing::Point(22, 246);
 			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(0, 100);
+			this->pictureBox6->Size = System::Drawing::Size(0, 0);
 			this->pictureBox6->TabIndex = 30;
 			this->pictureBox6->TabStop = false;
 			// 
@@ -1037,7 +1037,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->pictureBox5->BackColor = System::Drawing::Color::Red;
 			this->pictureBox5->Location = System::Drawing::Point(-20, -20);
 			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(0, 25);
+			this->pictureBox5->Size = System::Drawing::Size(0, 0);
 			this->pictureBox5->TabIndex = 25;
 			this->pictureBox5->TabStop = false;
 			// 
@@ -1047,7 +1047,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->pictureBox4->Location = System::Drawing::Point(-20, -20);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(0, 40);
+			this->pictureBox4->Size = System::Drawing::Size(0, 0);
 			this->pictureBox4->TabIndex = 24;
 			this->pictureBox4->TabStop = false;
 			// 
@@ -1056,7 +1056,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->pictureBox3->BackColor = System::Drawing::Color::Yellow;
 			this->pictureBox3->Location = System::Drawing::Point(-20, -20);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(0, 40);
+			this->pictureBox3->Size = System::Drawing::Size(0, 0);
 			this->pictureBox3->TabIndex = 23;
 			this->pictureBox3->TabStop = false;
 			// 
@@ -1066,7 +1066,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->pictureBox2->Location = System::Drawing::Point(-20, -20);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(0, 25);
+			this->pictureBox2->Size = System::Drawing::Size(0, 0);
 			this->pictureBox2->TabIndex = 22;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -1079,7 +1079,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox26->Location = System::Drawing::Point(334, 264);
 			this->textBox26->Name = L"textBox26";
-			this->textBox26->Size = System::Drawing::Size(28, 20);
+			this->textBox26->Size = System::Drawing::Size(0, 20);
 			this->textBox26->TabIndex = 21;
 			this->textBox26->Text = L"M3";
 			this->textBox26->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1093,7 +1093,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox25->Location = System::Drawing::Point(270, 220);
 			this->textBox25->Name = L"textBox25";
-			this->textBox25->Size = System::Drawing::Size(28, 20);
+			this->textBox25->Size = System::Drawing::Size(0, 20);
 			this->textBox25->TabIndex = 20;
 			this->textBox25->Text = L"M2";
 			this->textBox25->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1107,7 +1107,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox24->Location = System::Drawing::Point(166, 220);
 			this->textBox24->Name = L"textBox24";
-			this->textBox24->Size = System::Drawing::Size(28, 20);
+			this->textBox24->Size = System::Drawing::Size(0, 20);
 			this->textBox24->TabIndex = 19;
 			this->textBox24->Text = L"M1";
 			this->textBox24->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1121,7 +1121,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox23->Location = System::Drawing::Point(316, 72);
 			this->textBox23->Name = L"textBox23";
-			this->textBox23->Size = System::Drawing::Size(0, 26);
+			this->textBox23->Size = System::Drawing::Size(1, 26);
 			this->textBox23->TabIndex = 18;
 			this->textBox23->Text = L"0";
 			this->textBox23->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
@@ -1135,7 +1135,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox22->Location = System::Drawing::Point(365, 40);
 			this->textBox22->Name = L"textBox22";
-			this->textBox22->Size = System::Drawing::Size(0, 26);
+			this->textBox22->Size = System::Drawing::Size(1, 26);
 			this->textBox22->TabIndex = 17;
 			this->textBox22->Text = L"0";
 			this->textBox22->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
@@ -1205,7 +1205,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox17->Location = System::Drawing::Point(265, 282);
 			this->textBox17->Name = L"textBox17";
-			this->textBox17->Size = System::Drawing::Size(28, 20);
+			this->textBox17->Size = System::Drawing::Size(0, 20);
 			this->textBox17->TabIndex = 12;
 			this->textBox17->Text = L"Z4";
 			this->textBox17->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1219,7 +1219,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox16->Location = System::Drawing::Point(265, 308);
 			this->textBox16->Name = L"textBox16";
-			this->textBox16->Size = System::Drawing::Size(28, 20);
+			this->textBox16->Size = System::Drawing::Size(0, 20);
 			this->textBox16->TabIndex = 11;
 			this->textBox16->Text = L"X4";
 			this->textBox16->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1233,7 +1233,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox13->Location = System::Drawing::Point(328, 39);
 			this->textBox13->Name = L"textBox13";
-			this->textBox13->Size = System::Drawing::Size(0, 26);
+			this->textBox13->Size = System::Drawing::Size(1, 26);
 			this->textBox13->TabIndex = 10;
 			this->textBox13->Text = L"0";
 			this->textBox13->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
@@ -1247,7 +1247,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox12->Location = System::Drawing::Point(109, 39);
 			this->textBox12->Name = L"textBox12";
-			this->textBox12->Size = System::Drawing::Size(33, 26);
+			this->textBox12->Size = System::Drawing::Size(1, 26);
 			this->textBox12->TabIndex = 9;
 			this->textBox12->Text = L"0";
 			this->textBox12->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
@@ -1275,7 +1275,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox10->Location = System::Drawing::Point(99, 175);
 			this->textBox10->Name = L"textBox10";
-			this->textBox10->Size = System::Drawing::Size(32, 20);
+			this->textBox10->Size = System::Drawing::Size(0, 20);
 			this->textBox10->TabIndex = 7;
 			this->textBox10->Text = L"GR";
 			this->textBox10->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1289,7 +1289,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox9->Location = System::Drawing::Point(132, 205);
 			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(28, 20);
+			this->textBox9->Size = System::Drawing::Size(0, 20);
 			this->textBox9->TabIndex = 6;
 			this->textBox9->Text = L"X3";
 			this->textBox9->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1303,7 +1303,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox8->Location = System::Drawing::Point(173, 130);
 			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(28, 20);
+			this->textBox8->Size = System::Drawing::Size(0, 20);
 			this->textBox8->TabIndex = 5;
 			this->textBox8->Text = L"X2";
 			this->textBox8->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1317,7 +1317,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox7->Location = System::Drawing::Point(310, 231);
 			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(28, 20);
+			this->textBox7->Size = System::Drawing::Size(0, 20);
 			this->textBox7->TabIndex = 4;
 			this->textBox7->Text = L"X1";
 			this->textBox7->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1331,7 +1331,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox6->Location = System::Drawing::Point(145, 264);
 			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(28, 20);
+			this->textBox6->Size = System::Drawing::Size(0, 20);
 			this->textBox6->TabIndex = 3;
 			this->textBox6->Text = L"Z3";
 			this->textBox6->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1345,7 +1345,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox5->Location = System::Drawing::Point(173, 156);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(28, 20);
+			this->textBox5->Size = System::Drawing::Size(0, 20);
 			this->textBox5->TabIndex = 2;
 			this->textBox5->Text = L"Z2";
 			this->textBox5->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1359,7 +1359,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				static_cast<System::Byte>(238)));
 			this->textBox4->Location = System::Drawing::Point(291, 175);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(28, 20);
+			this->textBox4->Size = System::Drawing::Size(0, 20);
 			this->textBox4->TabIndex = 1;
 			this->textBox4->Text = L"Z1";
 			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1367,7 +1367,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(22, 29);
+			this->pictureBox1->Location = System::Drawing::Point(21, 29);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(420, 400);
 			this->pictureBox1->TabIndex = 0;
@@ -1413,6 +1413,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
 			this->menuStrip1->Size = System::Drawing::Size(934, 24);
 			this->menuStrip1->TabIndex = 4;
 			this->menuStrip1->Text = L"menuStrip1";
@@ -1430,30 +1431,37 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// zbiornikToolStripMenuItem
 			// 
 			this->zbiornikToolStripMenuItem->Name = L"zbiornikToolStripMenuItem";
-			this->zbiornikToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->zbiornikToolStripMenuItem->Size = System::Drawing::Size(178, 22);
 			this->zbiornikToolStripMenuItem->Text = L"Zbiornik";
 			this->zbiornikToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::zbiornikToolStripMenuItem_Click);
 			// 
 			// kaskadaZbiornikówToolStripMenuItem
 			// 
 			this->kaskadaZbiornikówToolStripMenuItem->Name = L"kaskadaZbiornikówToolStripMenuItem";
-			this->kaskadaZbiornikówToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->kaskadaZbiornikówToolStripMenuItem->Size = System::Drawing::Size(178, 22);
 			this->kaskadaZbiornikówToolStripMenuItem->Text = L"Kaskada zbiorników";
 			this->kaskadaZbiornikówToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::kaskadaZbiornikówToolStripMenuItem_Click);
 			// 
 			// wagonToolStripMenuItem
 			// 
 			this->wagonToolStripMenuItem->Name = L"wagonToolStripMenuItem";
-			this->wagonToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->wagonToolStripMenuItem->Size = System::Drawing::Size(178, 22);
 			this->wagonToolStripMenuItem->Text = L"Wagon";
 			this->wagonToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::wagonToolStripMenuItem_Click);
 			// 
 			// liniaProdukcyjnaToolStripMenuItem
 			// 
 			this->liniaProdukcyjnaToolStripMenuItem->Name = L"liniaProdukcyjnaToolStripMenuItem";
-			this->liniaProdukcyjnaToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->liniaProdukcyjnaToolStripMenuItem->Size = System::Drawing::Size(178, 22);
 			this->liniaProdukcyjnaToolStripMenuItem->Text = L"Linia produkcyjna";
 			this->liniaProdukcyjnaToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::liniaProdukcyjnaToolStripMenuItem_Click);
+			// 
+			// skrzy¿owanieToolStripMenuItem
+			// 
+			this->skrzy¿owanieToolStripMenuItem->Name = L"skrzy¿owanieToolStripMenuItem";
+			this->skrzy¿owanieToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			this->skrzy¿owanieToolStripMenuItem->Text = L"Skrzy¿owanie";
+			this->skrzy¿owanieToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::skrzy¿owanieToolStripMenuItem_Click);
 			// 
 			// symulacjaToolStripMenuItem
 			// 
@@ -1485,13 +1493,6 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->resetToolStripMenuItem->Size = System::Drawing::Size(102, 22);
 			this->resetToolStripMenuItem->Text = L"Reset";
 			this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::resetToolStripMenuItem_Click_1);
-			// 
-			// skrzy¿owanieToolStripMenuItem
-			// 
-			this->skrzy¿owanieToolStripMenuItem->Name = L"skrzy¿owanieToolStripMenuItem";
-			this->skrzy¿owanieToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->skrzy¿owanieToolStripMenuItem->Text = L"Skrzy¿owanie";
-			this->skrzy¿owanieToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::skrzy¿owanieToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 

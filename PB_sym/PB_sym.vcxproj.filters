@@ -169,6 +169,9 @@
     <Image Include="..\Images\000.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\Images\PictureBox1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
