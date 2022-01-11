@@ -1709,7 +1709,14 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 
 
 		
+		   int prodX1end = 75;
+		   int prodX2end = 165;
+		   int prodX3end = 250;
+		   int prodX4end = 365;
+		   int X3stayed = 30;
+		   int X4stayed = 30;
 
+		   
 
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1915,10 +1922,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			if (symulation) {
 
 				if (sym_Z4)wlvl1 += 5;
-				if (sym_Z1 && sym_X1) {
+				if (sym_Z1 && bottleX1 && !sym_TM && !sym_M1) {
 					if (wlvl1 > 5) {
 						wlvl1 -= 5;
-						bottleWaterLevel += 5;
+						bottleWaterLevel += 500;
 					}
 				}
 
@@ -1926,15 +1933,21 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 					pos_bottle += 2;
 				}
 				else {
-					if (pos_bottle < 57 || (pos_bottle > 60 && pos_bottle < 139) || (pos_bottle > 180 && pos_bottle < 230) || (pos_bottle > 240 && pos_bottle < 310)) pos_bottle += 2;
+					if (pos_bottle < 57 || (pos_bottle > 60 && pos_bottle < 139) || (pos_bottle > 180 && pos_bottle < 228) || (pos_bottle > 240 && pos_bottle < 312)) pos_bottle += 2;
 					if (sym_Z2 && sym_X2) nutTimer -= 10;
 					if (sym_Z3 && sym_X3) labelTimer -= 10;
-					if (sym_GR && sym_X4) validTimer -= 10;
+					if (!sym_Z3 && sym_X3) X3stayed--;
+					if (sym_GR && bottleX4) validTimer -= 10;
+					if (!sym_GR && bottleX4) X4stayed--;
 				}
 
 				if (nutTimer < 0) bottleNut = true;
 				if (labelTimer < 0) bottleLabel = true;
-				if (validTimer < 0 && pos_bottle > 300 && (!(bottleWaterLevel > 500) || !bottleNut || !bottleLabel)) pos_bottle_y += 2;
+				if (validTimer < 0/* && pos_bottle > 300 */&& (!(bottleWaterLevel > 500) || !bottleNut || !bottleLabel)) {
+					symulation = false;
+					MessageBox::Show("ERROR");
+				};
+
 
 			}
 			//Bottle simulation
@@ -1965,21 +1978,25 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 
 			if (wlvl1 < 0) wlvl1 = 0;
 			else if (wlvl1 > 1000) wlvl1 = 1000;
-
+			
 			sym_X6 = wlvl1 > 725;
 			sym_X7 = wlvl1 > 225;
-			sym_TM = (bottleWaterLevel > 500 && sym_X1);
+			sym_TM = (bottleWaterLevel > 500 && pos_bottle < 80);
 
+			if (bottleWaterLevel > 500) prodX1end = 20; else prodX1end = 75;
+			if (bottleNut) prodX2end = 120; else prodX2end = 165;
+			if (bottleLabel || X3stayed <= 0) prodX3end = 190; else prodX3end = 250;
+			if (validTimer <= 0 || X4stayed <=0) prodX4end = 265; else prodX4end = 365;
+			Debug::WriteLine(X4stayed);
 			if (pos_bottle > 54 && pos_bottle < 62)bottleX1 = 1; else bottleX1 = 0;
-			if (pos_bottle > 136 && pos_bottle < 144)bottleX2 = 1; else bottleX2 = 0;
+			if (pos_bottle > 136 && pos_bottle < 148)bottleX2 = 1; else bottleX2 = 0;
 			if (pos_bottle > 226 && pos_bottle < 234)bottleX3 = 1; else bottleX3 = 0;
-			if (pos_bottle > 308 && pos_bottle < 314)bottleX4 = 1; else bottleX4 = 0;
+			if (pos_bottle > 304 && pos_bottle < 314)bottleX4 = 1; else bottleX4 = 0;
 
-
-			if (pos_bottle > 15 && pos_bottle < 75)sym_X1 = 1; else sym_X1 = 0;
-			if (pos_bottle > 100 && pos_bottle < 165)sym_X2 = 1; else sym_X2 = 0;
-			if (pos_bottle > 180 && pos_bottle < 250)sym_X3 = 1; else sym_X3 = 0;
-			if (pos_bottle > 260 && pos_bottle < 365)sym_X4 = 1; else sym_X4 = 0;
+			if (pos_bottle > 15 && pos_bottle < prodX1end)sym_X1 = 1; else sym_X1 = 0;
+			if (pos_bottle > 100 && pos_bottle < prodX2end)sym_X2 = 1; else sym_X2 = 0;
+			if (pos_bottle > 180 && pos_bottle < prodX3end)sym_X3 = 1; else sym_X3 = 0;
+			if (pos_bottle > 260 && pos_bottle < prodX4end)sym_X4 = 1; else sym_X4 = 0;
 
 			this->textBox12->Clear(); ln = ""; ln = bottleWaterLevel.ToString();
 			this->textBox12->AppendText(ln);
@@ -2764,8 +2781,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 
     //Linia Produkcyjna 
 	private: System::Void liniaProdukcyjnaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		//TODO 
-		//dorób licznik do poziomu wody w butelce
+
 
 		this->button40->Size = System::Drawing::Size(37, 0);
 		this->button41->Size = System::Drawing::Size(37, 0);
@@ -2820,8 +2836,8 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 		this->textBox26->Location = System::Drawing::Point(387, 268);
 		this->textBox26->Size = System::Drawing::Size(0, 20);
 		//M2
-		this->textBox25->Location = System::Drawing::Point(389, 356);
-		this->textBox25->Size = System::Drawing::Size(22, 20);
+		this->textBox25->Location = System::Drawing::Point(60, 150);
+		this->textBox25->Size = System::Drawing::Size(27, 20);
 		//M1
 		this->textBox24->Location = System::Drawing::Point(338, 356);
 		this->textBox24->Size = System::Drawing::Size(27, 20);
