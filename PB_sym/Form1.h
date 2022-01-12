@@ -1626,6 +1626,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			   case 1: {
 				   if (!(!sym_Z2 && y > road1Stop && y < 145)) y += 2;
 				   else if (y > 91 && y < 140)y += 2;
+				   
 				   break;
 			   }
 			   case 2: {
@@ -1653,10 +1654,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			   };
 			   if ((x < 20 || x > 410 || y < 20 || y > 400) && car != 0) {
 				   switch (car) {
-				   case 1:amountRoad1++; break;
-				   case 2:amountRoad2++; break;
-				   case 3:amountRoad3++; break;
-				   case 4:amountRoad4++; break;
+					   case 1:amountRoad1++; break;
+					   case 2:amountRoad2++; break;
+					   case 3:amountRoad3++; break;
+					   case 4:amountRoad4++; break;
 				   }
 				   car = 0;
 				   p->Size = System::Drawing::Size(0, 0);
@@ -1693,17 +1694,17 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 		   char sensor_X2(PictureBox^ car) {
 			   int x = car->Location.X;
 			   int y = car->Location.Y;
-			   if (x == 203 && y > 100 && y < 140)return 1; else return 0;
+			   if (x == 203 && y > 100 && y < 155)return 1; else return 0;
 		   }
 		   char sensor_X3(PictureBox^ car) {
 			   int x = car->Location.X;
 			   int y = car->Location.Y;
-			   if (y == 235 && x > 90 && x < 150)return 1; else return 0;
+			   if (y == 235 && x > 90 && x < 145)return 1; else return 0;
 		   }
 		   char sensor_X4(PictureBox^ car) {
 			   int x = car->Location.X;
 			   int y = car->Location.Y;
-			   if (x == 239 && y > 280 && y < 320)return 1; else return 0;
+			   if (x == 239 && y > 275 && y < 320)return 1; else return 0;
 		
 		   }
 

@@ -128,38 +128,66 @@ void Solution(void) {
 	*/
 
 	//Linia Produkcyjna
-
+	/*
 	switch (stan1) {
-	case 1: Z1 = 0; Z2 = 0; Z3 = 0; GR = 0; M1 = 1;
-		if (X1) stan1 = 2;
-		if (X2) { stan1 = 3; tim1 = 50; }
-		if (X3) { stan1 = 4; tim1 = 50; }
-		if (X4) { stan1 = 5; tim1 = 50; }
-		break;
-	case 2: Z1 = 1; Z2 = 0; Z3 = 0; GR = 0; M1 = 0;
-		if (TM) stan1 = 1;
-		break;
-	case 3: Z1 = 0; Z2 = 1; Z3 = 0; GR = 0; M1 = 0;
-		if (!tim1) stan1 = 1;
-		break;
-	case 4: Z1 = 0; Z2 = 0; Z3 = 0; GR = 0; M1 = 0;
-		if (!tim1) stan1 = 1;
-		break;
-	case 5: Z1 = 0; Z2 = 0; Z3 = 0; GR = 1; M1 = 0;
-		if (!tim1) stan1 = 1;
-		break;
+		case 1: Z1 = 0; Z2 = 0; Z3 = 0; GR = 0; M1 = 1;
+			if (X1) stan1 = 2;
+			if (X2) { stan1 = 3; tim1 = 50; }
+			if (X3) { stan1 = 4; tim1 = 50; }
+			if (X4) { stan1 = 5; tim1 = 50; }
+			break;
+		case 2: Z1 = 1; Z2 = 0; Z3 = 0; GR = 0; M1 = 0;
+			if (TM) stan1 = 1;
+			break;
+		case 3: Z1 = 0; Z2 = 1; Z3 = 0; GR = 0; M1 = 0;
+			if (!tim1) stan1 = 1;
+			break;
+		case 4: Z1 = 0; Z2 = 0; Z3 = 0; GR = 0; M1 = 0;
+			if (!tim1) stan1 = 1;
+			break;
+		case 5: Z1 = 0; Z2 = 0; Z3 = 0; GR = 1; M1 = 0;
+			if (!tim1) stan1 = 1;
+			break;
 	}
 	if (tim1) --tim1;
 
 	//Zbiornik
 	switch (stan2) {
-	case 1: Z4 = 1; M2 = 0;
-		if (X6) stan2 = 2;
-		break;
-	case 2: Z4 = 0; M2 = 1;
-		if (!X7) stan = 1;
-		break;
+		case 1: Z4 = 1; M2 = 0;
+			if (X6) stan2 = 2;
+			break;
+		case 2: Z4 = 0; M2 = 1;
+			if (!X7) stan = 1;
+			break;
 	}
+	*/
+		
+	switch (stan) {
+		case 1: Z1 = Z3 = 1; Z2 = Z4 = 0; M1 = M2 = 0;
+			if (X2 || X4) { stan = 2; tim = 70; }
+			break;
+		case 2: Z1 = Z3 = 0; Z2 = Z4 = 0; M1 = M2 = 0;
+			if (!tim) { stan = 3; tim = 100; }
+			break;
+
+
+
+		case 3: Z1 = Z3 = 0; Z2 = Z4 = 1; M1 = M2 = 1;
+			if (!tim) { stan = 4; tim = 30; }
+			break;
+		case 4: Z1 = Z3 = 0; Z2 = Z4 = 1; M1 = M2 = 0;
+			if (!tim) stan = 1;
+			break;
+		case 5: Z1 = Z3 = 1; Z2 = Z4 = 0; M1 = M2 = 0;
+			if (TM) stan = 6;
+			break;
+		case 6: Z1 = Z3 = 1; Z2 = Z4 = 0; M1 = M2 = 0;
+			if (!X1) stan = 1;
+			break;
+
+	}
+	if (tim) --tim;
+
 
 
 
