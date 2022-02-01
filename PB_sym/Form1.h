@@ -88,11 +88,8 @@ namespace PB_sym {
 
 	void trans_char(char c);       // wyœlij jeden znak z konsoli do PB  
 	void trans_string(char* s);   // wyœlij tekst (string) z konsoli do PB  
-	//void rotateCar(PictureBox^ p);
-	//void ustaw_wy();
-	/*void rotateCarPoz(PictureBox^ p) {
-		p->Size = System::Drawing::Size(55, 33);
-	}*/
+	
+	bool communication = false;
 	char stan_z = 1;
 
 	char sym_X1, sym_X2, sym_X3, sym_X4, sym_X5, sym_X6, sym_X7, sym_TM;  // stany czujnikow obiektu
@@ -101,18 +98,14 @@ namespace PB_sym {
 
 	float wlvl1, wlvl2, wlvl3, temp; // poziom i temperatura wody w zbiorniku
 	bool symulation = false;
-
 	bool wagonOn = false;
 	int example = 5;
 	int pB2width = 10;
 	int pB3width = 0;
 	int pB4width = 0;
 	int pB5width = 10;
-
 	int pos_wag = 350;
-	
-	
-	
+		
 	//Zad4
 	int pos_bottle = -1000000;
 	int pos_bottle_y = 500;
@@ -152,6 +145,13 @@ namespace PB_sym {
 	int timZ1 = 20, timZ2 = 20, timZ3 = 20, timZ4 = 20;
 	bool cross_error;
 
+	int prodX1end = 75;
+	int prodX2end = 165;
+	int prodX3end = 250;
+	int prodX4end = 365;
+	int X2stayed = 30;
+	int X3stayed = 30;
+	int X4stayed = 30;
 	// -----------------------------------------------------------------------
 
 
@@ -279,6 +279,7 @@ namespace PB_sym {
 	private: System::Windows::Forms::PictureBox^ pictureBox7;
 	private: System::Windows::Forms::Button^ button42;
 private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ komunikacjaToolStripMenuItem;
 
 
 
@@ -398,6 +399,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->startToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->stopToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->resetToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->komunikacjaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
@@ -1077,9 +1079,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox26->Enabled = false;
 			this->textBox26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox26->Location = System::Drawing::Point(334, 264);
+			this->textBox26->Location = System::Drawing::Point(-334, 264);
 			this->textBox26->Name = L"textBox26";
-			this->textBox26->Size = System::Drawing::Size(0, 20);
+			this->textBox26->Size = System::Drawing::Size(1, 20);
 			this->textBox26->TabIndex = 21;
 			this->textBox26->Text = L"M3";
 			this->textBox26->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1091,9 +1093,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox25->Enabled = false;
 			this->textBox25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox25->Location = System::Drawing::Point(270, 220);
+			this->textBox25->Location = System::Drawing::Point(-270, 220);
 			this->textBox25->Name = L"textBox25";
-			this->textBox25->Size = System::Drawing::Size(0, 20);
+			this->textBox25->Size = System::Drawing::Size(1, 20);
 			this->textBox25->TabIndex = 20;
 			this->textBox25->Text = L"M2";
 			this->textBox25->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1105,9 +1107,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox24->Enabled = false;
 			this->textBox24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox24->Location = System::Drawing::Point(166, 220);
+			this->textBox24->Location = System::Drawing::Point(-166, 220);
 			this->textBox24->Name = L"textBox24";
-			this->textBox24->Size = System::Drawing::Size(0, 20);
+			this->textBox24->Size = System::Drawing::Size(1, 20);
 			this->textBox24->TabIndex = 19;
 			this->textBox24->Text = L"M1";
 			this->textBox24->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1147,9 +1149,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox21->Enabled = false;
 			this->textBox21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox21->Location = System::Drawing::Point(43, 402);
+			this->textBox21->Location = System::Drawing::Point(-43, 402);
 			this->textBox21->Name = L"textBox21";
-			this->textBox21->Size = System::Drawing::Size(0, 20);
+			this->textBox21->Size = System::Drawing::Size(1, 20);
 			this->textBox21->TabIndex = 16;
 			this->textBox21->Text = L"X7";
 			this->textBox21->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1161,9 +1163,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox20->Enabled = false;
 			this->textBox20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox20->Location = System::Drawing::Point(43, 376);
+			this->textBox20->Location = System::Drawing::Point(-43, 376);
 			this->textBox20->Name = L"textBox20";
-			this->textBox20->Size = System::Drawing::Size(0, 20);
+			this->textBox20->Size = System::Drawing::Size(1, 20);
 			this->textBox20->TabIndex = 15;
 			this->textBox20->Text = L"X6";
 			this->textBox20->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1175,9 +1177,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox19->Enabled = false;
 			this->textBox19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox19->Location = System::Drawing::Point(338, 166);
+			this->textBox19->Location = System::Drawing::Point(-338, 166);
 			this->textBox19->Name = L"textBox19";
-			this->textBox19->Size = System::Drawing::Size(0, 20);
+			this->textBox19->Size = System::Drawing::Size(1, 20);
 			this->textBox19->TabIndex = 14;
 			this->textBox19->Text = L"X5";
 			this->textBox19->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1189,9 +1191,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox18->Enabled = false;
 			this->textBox18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox18->Location = System::Drawing::Point(315, 132);
+			this->textBox18->Location = System::Drawing::Point(-315, 132);
 			this->textBox18->Name = L"textBox18";
-			this->textBox18->Size = System::Drawing::Size(0, 20);
+			this->textBox18->Size = System::Drawing::Size(1, 20);
 			this->textBox18->TabIndex = 13;
 			this->textBox18->Text = L"Z5";
 			this->textBox18->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1203,9 +1205,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox17->Enabled = false;
 			this->textBox17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox17->Location = System::Drawing::Point(265, 282);
+			this->textBox17->Location = System::Drawing::Point(-265, 282);
 			this->textBox17->Name = L"textBox17";
-			this->textBox17->Size = System::Drawing::Size(0, 20);
+			this->textBox17->Size = System::Drawing::Size(1, 20);
 			this->textBox17->TabIndex = 12;
 			this->textBox17->Text = L"Z4";
 			this->textBox17->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1217,9 +1219,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox16->Enabled = false;
 			this->textBox16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox16->Location = System::Drawing::Point(265, 308);
+			this->textBox16->Location = System::Drawing::Point(-265, 308);
 			this->textBox16->Name = L"textBox16";
-			this->textBox16->Size = System::Drawing::Size(0, 20);
+			this->textBox16->Size = System::Drawing::Size(1, 20);
 			this->textBox16->TabIndex = 11;
 			this->textBox16->Text = L"X4";
 			this->textBox16->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1259,9 +1261,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox11->Enabled = false;
 			this->textBox11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox11->Location = System::Drawing::Point(73, 402);
+			this->textBox11->Location = System::Drawing::Point(-73, 402);
 			this->textBox11->Name = L"textBox11";
-			this->textBox11->Size = System::Drawing::Size(0, 20);
+			this->textBox11->Size = System::Drawing::Size(1, 20);
 			this->textBox11->TabIndex = 8;
 			this->textBox11->Text = L"TM";
 			this->textBox11->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1273,9 +1275,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox10->Enabled = false;
 			this->textBox10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox10->Location = System::Drawing::Point(99, 175);
+			this->textBox10->Location = System::Drawing::Point(-99, 175);
 			this->textBox10->Name = L"textBox10";
-			this->textBox10->Size = System::Drawing::Size(0, 20);
+			this->textBox10->Size = System::Drawing::Size(1, 20);
 			this->textBox10->TabIndex = 7;
 			this->textBox10->Text = L"GR";
 			this->textBox10->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1287,9 +1289,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox9->Enabled = false;
 			this->textBox9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox9->Location = System::Drawing::Point(132, 205);
+			this->textBox9->Location = System::Drawing::Point(-132, 205);
 			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(0, 20);
+			this->textBox9->Size = System::Drawing::Size(1, 20);
 			this->textBox9->TabIndex = 6;
 			this->textBox9->Text = L"X3";
 			this->textBox9->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1301,9 +1303,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox8->Enabled = false;
 			this->textBox8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox8->Location = System::Drawing::Point(173, 130);
+			this->textBox8->Location = System::Drawing::Point(-173, 130);
 			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(0, 20);
+			this->textBox8->Size = System::Drawing::Size(1, 20);
 			this->textBox8->TabIndex = 5;
 			this->textBox8->Text = L"X2";
 			this->textBox8->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1315,9 +1317,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox7->Enabled = false;
 			this->textBox7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox7->Location = System::Drawing::Point(310, 231);
+			this->textBox7->Location = System::Drawing::Point(-310, 231);
 			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(0, 20);
+			this->textBox7->Size = System::Drawing::Size(1, 20);
 			this->textBox7->TabIndex = 4;
 			this->textBox7->Text = L"X1";
 			this->textBox7->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1329,9 +1331,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox6->Enabled = false;
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox6->Location = System::Drawing::Point(145, 264);
+			this->textBox6->Location = System::Drawing::Point(-145, 264);
 			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(0, 20);
+			this->textBox6->Size = System::Drawing::Size(1, 20);
 			this->textBox6->TabIndex = 3;
 			this->textBox6->Text = L"Z3";
 			this->textBox6->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1343,9 +1345,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox5->Enabled = false;
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox5->Location = System::Drawing::Point(173, 156);
+			this->textBox5->Location = System::Drawing::Point(-173, 156);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(0, 20);
+			this->textBox5->Size = System::Drawing::Size(1, 20);
 			this->textBox5->TabIndex = 2;
 			this->textBox5->Text = L"Z2";
 			this->textBox5->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1357,9 +1359,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			this->textBox4->Enabled = false;
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox4->Location = System::Drawing::Point(291, 175);
+			this->textBox4->Location = System::Drawing::Point(-291, 175);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(0, 20);
+			this->textBox4->Size = System::Drawing::Size(1, 20);
 			this->textBox4->TabIndex = 1;
 			this->textBox4->Text = L"Z1";
 			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1367,7 +1369,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(21, 29);
+			this->pictureBox1->Location = System::Drawing::Point(22, 29);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(420, 400);
 			this->pictureBox1->TabIndex = 0;
@@ -1465,9 +1467,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// 
 			// symulacjaToolStripMenuItem
 			// 
-			this->symulacjaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->symulacjaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->startToolStripMenuItem,
-					this->stopToolStripMenuItem, this->resetToolStripMenuItem
+					this->stopToolStripMenuItem, this->resetToolStripMenuItem, this->komunikacjaToolStripMenuItem
 			});
 			this->symulacjaToolStripMenuItem->Name = L"symulacjaToolStripMenuItem";
 			this->symulacjaToolStripMenuItem->Size = System::Drawing::Size(73, 20);
@@ -1476,23 +1478,30 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			// startToolStripMenuItem
 			// 
 			this->startToolStripMenuItem->Name = L"startToolStripMenuItem";
-			this->startToolStripMenuItem->Size = System::Drawing::Size(102, 22);
+			this->startToolStripMenuItem->Size = System::Drawing::Size(143, 22);
 			this->startToolStripMenuItem->Text = L"Start";
 			this->startToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::startToolStripMenuItem_Click);
 			// 
 			// stopToolStripMenuItem
 			// 
 			this->stopToolStripMenuItem->Name = L"stopToolStripMenuItem";
-			this->stopToolStripMenuItem->Size = System::Drawing::Size(102, 22);
+			this->stopToolStripMenuItem->Size = System::Drawing::Size(143, 22);
 			this->stopToolStripMenuItem->Text = L"Stop";
 			this->stopToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::stopToolStripMenuItem_Click);
 			// 
 			// resetToolStripMenuItem
 			// 
 			this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
-			this->resetToolStripMenuItem->Size = System::Drawing::Size(102, 22);
+			this->resetToolStripMenuItem->Size = System::Drawing::Size(143, 22);
 			this->resetToolStripMenuItem->Text = L"Reset";
 			this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::resetToolStripMenuItem_Click_1);
+			// 
+			// komunikacjaToolStripMenuItem
+			// 
+			this->komunikacjaToolStripMenuItem->Name = L"komunikacjaToolStripMenuItem";
+			this->komunikacjaToolStripMenuItem->Size = System::Drawing::Size(143, 22);
+			this->komunikacjaToolStripMenuItem->Text = L"Komunikacja";
+			this->komunikacjaToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::komunikacjaToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -1669,13 +1678,13 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 		   bool crossY(PictureBox^ p) {
 			   int x = p->Location.X;	   
 			   int y = p->Location.Y;
-			   if ((y == 200|| y == 235) && (x > 170 && x < 250 && x != 203 && x != 239)) return true; else return false;
+			   if ((y == 200|| y == 235) && (x > 180 && x < 240 && x != 203 && x != 239)) return true; else return false;
 		   }
 
 		   bool crossX(PictureBox^ p) {
 			   int x = p->Location.X;
 			   int y = p->Location.Y;
-			   if ((x == 203 || x == 239) && (y > 170 && y < 250 && y != 200 && y != 235 ))return true; else return false;
+			   if ((x == 203 || x == 239) && (y > 180 && y < 240 && y != 200 && y != 235 ))return true; else return false;
 
 		   }
 		   
@@ -1706,19 +1715,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			   int y = car->Location.Y;
 			   if (x == 239 && y > 275 && y < 320)return 1; else return 0;
 		
-		   }
-
-
-		
-		   int prodX1end = 75;
-		   int prodX2end = 165;
-		   int prodX3end = 250;
-		   int prodX4end = 365;
-		   int X2stayed = 30;
-		   int X3stayed = 30;
-		   int X4stayed = 30;
-
-		   
+		   }	   
 
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1922,15 +1919,15 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 		}
 		case 4: {
 			if (symulation) {
-
+				//Poziomy wody w zbiorniku i butelce
 				if (sym_Z4)wlvl1 += 5;
 				if (sym_Z1 && bottleX1 && !sym_TM && !sym_M1) {
 					if (wlvl1 > 5) {
 						wlvl1 -= 5;
-						bottleWaterLevel += 500;
+						bottleWaterLevel += 5;
 					}
 				}
-
+				//Uruchomienie taœmy 
 				if (sym_M1) {
 					pos_bottle += 2;
 				}
@@ -1946,11 +1943,15 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 
 				if (nutTimer < 0) bottleNut = true;
 				if (labelTimer < 0) bottleLabel = true;
-				if (validTimer < 0/* && pos_bottle > 300 */&& (!(bottleWaterLevel > 500) || !bottleNut || !bottleLabel)) {
+				//ERROR zatrzymywanie programu
+				if ((validTimer < 0/* && pos_bottle > 300 */&& (!(bottleWaterLevel > 500) || !bottleNut || !bottleLabel))) {
 					symulation = false;
-					MessageBox::Show("ERROR");
+					MessageBox::Show("Butelka niekompletna");
 				};
-
+				if (bottleWaterLevel > 600) {
+					symulation = false;
+					MessageBox::Show("Krytyczny poziom wody zosta³ przekroczony");
+				};
 
 			}
 			//Bottle simulation
@@ -1981,7 +1982,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 
 			if (wlvl1 < 0) wlvl1 = 0;
 			else if (wlvl1 > 1000) wlvl1 = 1000;
-			Debug::WriteLine(pos_bottle);
+			
 			sym_X6 = wlvl1 > 725;
 			sym_X7 = wlvl1 > 225;
 			sym_TM = (bottleWaterLevel > 500 && pos_bottle < 80);
@@ -1990,7 +1991,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 			if (bottleNut || X2stayed <= 0) prodX2end = 120; else prodX2end = 165;
 			if (bottleLabel || X3stayed <= 0) prodX3end = 190; else prodX3end = 250;
 			if (validTimer <= 0 || X4stayed <=0) prodX4end = 265; else prodX4end = 365;
-			
+			Debug::WriteLine("VALID TIMER");
+			Debug::WriteLine(validTimer);
+			Debug::WriteLine("X4");
+			Debug::WriteLine(X4stayed);
 			if (pos_bottle > 54 && pos_bottle < 62)bottleX1 = 1; else bottleX1 = 0;
 			if (pos_bottle > 136 && pos_bottle < 148)bottleX2 = 1; else bottleX2 = 0;
 			if (pos_bottle > 226 && pos_bottle < 234)bottleX3 = 1; else bottleX3 = 0;
@@ -2003,6 +2007,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 
 			this->textBox12->Clear(); ln = ""; ln = bottleWaterLevel.ToString();
 			this->textBox12->AppendText(ln);
+
+			if (bottleWaterLevel >= 600)  this->textBox12->BackColor = System::Drawing::Color::Red;
+			else            this->textBox12->BackColor = System::Drawing::Color::LightYellow;
 
 			this->pictureBox6->Location = System::Drawing::Point(pos_bottle, pos_bottle_y);
 			this->pictureBox6->Size = System::Drawing::Size(40, 100);
@@ -2121,21 +2128,20 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 		
 			break;
 		}
-
 		}
-
-		sym_trans_char(cc = ':');           ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = sym_X1 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = sym_X2 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = sym_X3 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = sym_X4 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = sym_X5 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = sym_X6 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = sym_X7 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = sym_TM + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = '\r');          ln = cc.ToString(); this->textBox15->AppendText(ln);
-		sym_trans_char(cc = '\n');          ln = cc.ToString(); this->textBox15->AppendText(ln);
-
+		if(communication){
+			sym_trans_char(cc = ':');           ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = sym_X1 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = sym_X2 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = sym_X3 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = sym_X4 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = sym_X5 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = sym_X6 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = sym_X7 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = sym_TM + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = '\r');          ln = cc.ToString(); this->textBox15->AppendText(ln);
+			sym_trans_char(cc = '\n');          ln = cc.ToString(); this->textBox15->AppendText(ln);
+		}
 		if (example == 4) {
 			if (bottleX1) this->textBox7->BackColor = System::Drawing::Color::Yellow;
 			else        this->textBox7->BackColor = System::Drawing::Color::White;
@@ -2246,7 +2252,6 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 		if (sym_GR) this->textBox10->BackColor = System::Drawing::Color::LightGreen;
 		else        this->textBox10->BackColor = System::Drawing::Color::White;
 
-
 		if (sym_M3) this->textBox26->BackColor = System::Drawing::Color::LightGreen;
 		else        this->textBox26->BackColor = System::Drawing::Color::White;
 		// ------------------ regulator -------------------------------
@@ -2296,7 +2301,8 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 				char znak;
 
 				++sym_ind1; sym_ind1 &= 0x00FF; cc = buf_sym[sym_ind1];
-				ln = cc.ToString(); this->textBox14->AppendText(ln);
+				ln = cc.ToString(); 
+				if(communication)this->textBox14->AppendText(ln);
 				rc_sym = 0;
 
 				znak = cc;
@@ -2450,7 +2456,6 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 
 		   System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 	//Zbiornik
-
 	private: System::Void zbiornikToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		example = 1;
 		this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Zbiornik")));
@@ -3114,8 +3119,16 @@ private: System::Windows::Forms::ToolStripMenuItem^ skrzy¿owanieToolStripMenuIte
 	
 	
 	}
-	
+
+	private: System::Void komunikacjaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (communication) { 
+			communication = false; 
+			this->komunikacjaToolStripMenuItem->Checked = false;
+		} else { 
+			communication = true; 
+			this->komunikacjaToolStripMenuItem->Checked = true; 
+		}
+	}
 };
 
 }
-
