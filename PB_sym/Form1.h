@@ -2753,6 +2753,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ komunikacjaToolStripMenuItem
 		this->textBox6->Location = System::Drawing::Point(389, 366);
 		this->textBox6->Size = System::Drawing::Size(0, 20);
 
+		this->textBox4->Size = System::Drawing::Size(28, 20);
+
+		this->textBox5->Size = System::Drawing::Size(28, 20);
 		this->textBox5->Location = System::Drawing::Point(270, 122);
 
 		this->textBox4->Location = System::Drawing::Point(167, 122);
