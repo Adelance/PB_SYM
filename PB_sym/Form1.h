@@ -1988,15 +1988,12 @@ private: System::Windows::Forms::ToolStripMenuItem^ komunikacjaToolStripMenuItem
 			sym_TM = (bottleWaterLevel > 500 && pos_bottle < 80);
 
 			if (bottleWaterLevel > 500) prodX1end = 20; else prodX1end = 75;
-			if (bottleNut || X2stayed <= 0) prodX2end = 120; else prodX2end = 165;
+			if (bottleNut || X2stayed <= 0) prodX2end = 120; else prodX2end = 150;
 			if (bottleLabel || X3stayed <= 0) prodX3end = 190; else prodX3end = 250;
 			if (validTimer <= 0 || X4stayed <=0) prodX4end = 265; else prodX4end = 365;
-			Debug::WriteLine("VALID TIMER");
-			Debug::WriteLine(validTimer);
-			Debug::WriteLine("X4");
-			Debug::WriteLine(X4stayed);
+			Debug::WriteLine(pos_bottle);
 			if (pos_bottle > 54 && pos_bottle < 62)bottleX1 = 1; else bottleX1 = 0;
-			if (pos_bottle > 136 && pos_bottle < 148)bottleX2 = 1; else bottleX2 = 0;
+			if (pos_bottle > 136 && pos_bottle < 150)bottleX2 = 1; else bottleX2 = 0;
 			if (pos_bottle > 226 && pos_bottle < 234)bottleX3 = 1; else bottleX3 = 0;
 			if (pos_bottle > 304 && pos_bottle < 314)bottleX4 = 1; else bottleX4 = 0;
 
@@ -2129,19 +2126,19 @@ private: System::Windows::Forms::ToolStripMenuItem^ komunikacjaToolStripMenuItem
 			break;
 		}
 		}
-		if(communication){
-			sym_trans_char(cc = ':');           ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = sym_X1 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = sym_X2 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = sym_X3 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = sym_X4 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = sym_X5 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = sym_X6 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = sym_X7 + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = sym_TM + '0');    ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = '\r');          ln = cc.ToString(); this->textBox15->AppendText(ln);
-			sym_trans_char(cc = '\n');          ln = cc.ToString(); this->textBox15->AppendText(ln);
-		}
+		
+		sym_trans_char(cc = ':');           ln = cc.ToString();   if (communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = sym_X1 + '0');    ln = cc.ToString(); if (communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = sym_X2 + '0');    ln = cc.ToString(); if (communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = sym_X3 + '0');    ln = cc.ToString(); if (communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = sym_X4 + '0');    ln = cc.ToString(); if (communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = sym_X5 + '0');    ln = cc.ToString(); if(communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = sym_X6 + '0');    ln = cc.ToString(); if (communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = sym_X7 + '0');    ln = cc.ToString(); if (communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = sym_TM + '0');    ln = cc.ToString(); if (communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = '\r');          ln = cc.ToString(); if (communication)this->textBox15->AppendText(ln);
+		sym_trans_char(cc = '\n');          ln = cc.ToString(); if (communication)this->textBox15->AppendText(ln);
+		
 		if (example == 4) {
 			if (bottleX1) this->textBox7->BackColor = System::Drawing::Color::Yellow;
 			else        this->textBox7->BackColor = System::Drawing::Color::White;
@@ -2920,6 +2917,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ komunikacjaToolStripMenuItem
 				nutTimer = 300;
 				labelTimer = 300;
 				invalidBottle = false;
+				validTimer = 300;
 			}
 		}
 
